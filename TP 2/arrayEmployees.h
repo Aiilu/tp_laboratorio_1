@@ -1,23 +1,39 @@
-#ifndef arrayEmployees
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <ctype.h>
+#define EMP 5
 
 typedef struct
 {
-int id;
-char name[51];
-char lastNam[51];
-float salary;
-int sector;
-int isEmpty;
-}sEmployee;
+    int id;
+    char nombre[51];
+    char apellido[51];
+    float sueldo;
+    int sector;
+    int isEmpty;
+} eEmpleado;
 
-int initEmployees(sEmployee*,int);
-/*indica matriz vacia, coloca bandera en TRUE, retorna error, caso de error 0;*/
-//r=initEmployees(arrayEmployees,ELEMENTS);
+void menuOpcion(eEmpleado[],int);
+void inicializarEmpleados( eEmpleado x[], int tam);
+int buscarLibre( eEmpleado x[], int tam);
+int buscarEmpleado(eEmpleado x[], int tam);
+int buscarEmpleadoxID(eEmpleado x[], int tam,int id);
+void mostrarEmpleado(eEmpleado emp);
+void mostrarEmpleados(eEmpleado nomina[], int tam);
+void agregarEmpleado(eEmpleado empleados[], int tam);
+void eliminarEmpleado(eEmpleado *empleados, int tam);
+void modificarEmpleado(eEmpleado empleados[], int tam);
+void ordenarXSectorYapellido(eEmpleado x[],int tam);
+void Promediar(eEmpleado x[], int tam);
 
-int addEmployee(sEmployee*,int,int,char,char,float,int);
-/*agrega los valores recibidos en el primer espacio libre,retorna -1 en error, si no 0,OK*/
-//r=addEmployee(arrayEmployes,Elements);
-
-#endif // arrayEmployees
-
-
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
+// PROTOCOLO DE GENERADOR ID

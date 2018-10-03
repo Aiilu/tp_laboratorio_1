@@ -1,22 +1,18 @@
 # depslib dependency file v1.0
-1538162860 source:c:\users\mirta\desktop\tp2\tp 2\main.c
+1538523125 source:c:\users\mirta\desktop\tp2\tp 2\main.c
 	<stdio.h>
 	<stdlib.h>
-	<conio.h>
-	<string.h>
-	<ctype.h>
 	"arrayEmployees.h"
-	"menu.h"
 
-1538162956 c:\users\mirta\desktop\tp2\tp 2\arrayemployees.h
+1538525189 c:\users\mirta\desktop\tp2\tp 2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
 
 1538162500 c:\users\mirta\desktop\tp2\tp 2\menu.h
 
-1538162748 source:c:\users\mirta\desktop\tp2\tp 2\arrayemployees.c
-	<stdio.h>
-	<stdlib.h>
-	<conio.h>
-	<string.h>
-	<ctype.h>
+1538525189 source:c:\users\mirta\desktop\tp2\tp 2\arrayemployees.c
 	"arrayEmployees.h"
 
