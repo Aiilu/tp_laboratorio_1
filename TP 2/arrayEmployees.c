@@ -1,18 +1,24 @@
-
+#include <conio.h>
+#include <ctype.h>
 #include "arrayEmployees.h"
 
-void menuOpcion(eEmpleado list[],int len)
+void menuOpcion(eEmpleado x[],int tam)
 {
     char opcion;
     char carga='N';
     do
     {
         system("cls");
-        printf("MENU OPCIONES\n");
-        printf("A. Dar de alta\n");
-        printf("M. Modificar\n");
-        printf("B. Dar de baja\n");
-        printf("I. Informar\n");
+        printf("   MENU OPCIONES\n");
+        printf("   ***************\n");
+        printf("   A. Dar de alta\n");
+        printf("                \n");
+        printf("   M. Modificar\n");
+        printf("               \n");
+        printf("   B. Dar de baja\n");
+        printf("               \n ");
+        printf("   I. Informar\n");
+        printf("   ***************\n");
         printf("Ingrese una opcion");
         opcion=getche();
         opcion=toupper(opcion);
@@ -20,14 +26,14 @@ void menuOpcion(eEmpleado list[],int len)
         {
         case 'A':
             system("cls");
-            agregarEmpleado(list,len);
+            agregarEmpleado(x,tam);
             carga = 'S';
             break;
 
         case 'M':
             if(carga=='S')
             {
-                //modificar(list,len);
+                modificarEmpleado(x,tam);
                 system("pause");
                 break;
             }
@@ -41,7 +47,9 @@ void menuOpcion(eEmpleado list[],int len)
         case 'B':
             if(carga=='S')
             {
-
+               eliminarEmpleado(x,tam);
+               system("pause");
+               break;
             }
             else
             {
@@ -52,7 +60,9 @@ void menuOpcion(eEmpleado list[],int len)
         case 'I':
             if(carga=='S')
             {
-
+              subMenuOpcionInformar(x,tam);
+              system("pause");
+              break;
             }
             else
             {
@@ -178,7 +188,6 @@ void agregarEmpleado(eEmpleado empleados[], int tam)
         }
 
     }
-
 void mostrarEmpleado(eEmpleado emp)
 {
     printf(("ID  Nombre  Apellido    Sueldo     Sector\n\n"));
@@ -381,33 +390,78 @@ void ordenarXSectorYapellido(eEmpleado x[],int tam)
 
 }
 
-void Promediar(eEmpleado x[], int tam)
+void promediar(eEmpleado x[], int tam)
 {
     int i;
-    int contsueldos=0;
-    float sumasueldos=0;
-    float promediosueldos;
-    int contMassueldo=0;
+    int contadorDeSueldos=0;
+    float sumaDeSueldos=0;
+    float promDeSueldos;
+    int contadorMaximoSueldo=0;
     for (i=0; i<tam; i++)
     {
         if(x[i].isEmpty==0)
         {
-            sumasueldos+=x[i].sueldo;
-            contsueldos++;
+            sumaDeSueldos+=x[i].sueldo;
+            contadorDeSueldos++;
         }
     }
-    promediosueldos=sumasueldos/contsueldos;
-    printf("La suma de los sueldos es de: %f \n el promedio total seria: %f \n", sumasueldos, promediosueldos);
+    promDeSueldos=sumaDeSueldos/contadorDeSueldos;
+    printf("La suma de los sueldos es de: %f \n el promedio total seria: %f \n", sumaDeSueldos, promDeSueldos);
 
     for(i=0; i<tam; i++)
     {
-        if(x[i].isEmpty==0 && x[i].sueldo>promediosueldos)
+        if(x[i].isEmpty==0 && x[i].sueldo>promDeSueldos)
         {
             mostrarEmpleado(x[i]);
-            contMassueldo++;
+            contadorMaximoSueldo++;
         }
     }
-    printf("La cantidad de empleados que superan el sueldo promedio es de: %d \n ", contMassueldo);
+    printf("La cantidad de empleados que superan el sueldo promedio es de: %d \n ", contadorMaximoSueldo);
 
     system("pause");
 }
+
+void subMenuOpcionInformar(eEmpleado x[],int tam)
+ {
+    char opcion;
+    do
+    {
+        system("cls");
+        printf("        ****************************************************\n ");
+        printf("                             Informes    \n ");
+        printf("        ******************************************************\n ");
+
+        printf("          M. Mostrar alumnos ordenados por Sector y Apellido\n");
+        printf("                                                             \n ");
+        printf("          A. Ordenar por Apellidos\n");
+        printf("                                                             \n ");
+         printf("          S. Ordenar por Sector\n");
+          printf("                                                             \n ");
+        printf("          P. Promedio y Total de salarios\n");
+        printf("                                                           \n ");
+        printf("          V. Volver");
+        printf("        ******************************************************\n ");
+        printf("          Ingrese una opcion: ");
+        opcion=getch();
+        opcion=toupper(opcion);
+        switch(opcion)
+        {
+        case 'M':
+            system("cls");
+            ordenarXSectorYapellido(x,tam);
+            break;
+        case 'P':
+            system("cls");
+            promediar(x,tam);
+            break;
+        case 'A':
+            system("cls");
+            break;
+
+        case 'S':
+            system("cls");
+            break;
+        }
+    }
+    while(opcion!='V');
+ }

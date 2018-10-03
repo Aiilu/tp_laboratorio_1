@@ -16,24 +16,128 @@ typedef struct
     int isEmpty;
 } eEmpleado;
 
+/** \brief muestra las opciones al usuario
+ *
+ * \param eEmpleado[]
+ * \param int
+ * \return void
+ *
+ */
 void menuOpcion(eEmpleado[],int);
+
+/** \brief inicializa a los empleados
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
 void inicializarEmpleados( eEmpleado x[], int tam);
+
+/** \brief busca espacio libre, y lo devuelve si esta vacio, si no, salta un mensaje de error
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return int
+ *
+ */
 int buscarLibre( eEmpleado x[], int tam);
-int buscarEmpleado(eEmpleado x[], int tam);
-int buscarEmpleadoxID(eEmpleado x[], int tam,int id);
-void mostrarEmpleado(eEmpleado emp);
-void mostrarEmpleados(eEmpleado nomina[], int tam);
-void agregarEmpleado(eEmpleado empleados[], int tam);
-void eliminarEmpleado(eEmpleado *empleados, int tam);
-void modificarEmpleado(eEmpleado empleados[], int tam);
-void ordenarXSectorYapellido(eEmpleado x[],int tam);
-void Promediar(eEmpleado x[], int tam);
+
+/** \brief carga de manera incremental el ID de un empleado
+ *
+ * \param void
+ * \return int
+ *
+ */
+int cargarId(void);
 
 /** \brief
  *
- * \param
- * \param
- * \return
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return int
  *
  */
-// PROTOCOLO DE GENERADOR ID
+int buscarEmpleado(eEmpleado x[], int tam);
+
+/** \brief permite encontrar a un empelado mediante su ID
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \param id int
+ * \return int
+ *
+ */
+int buscarEmpleadoxID(eEmpleado x[], int tam,int id);
+
+/** \brief muestra datos de un empleado
+ *
+ * \param emp eEmpleado
+ * \return void
+ *
+ */
+void mostrarEmpleado(eEmpleado emp);
+
+/** \brief muestra los datos de todos los empleados mediante un recorrido de todo el array
+ *
+ * \param nomina[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void mostrarEmpleados(eEmpleado nomina[], int tam);
+
+/** \brief Ingresa los datos de los empleados
+ *
+ * \param empleados[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void agregarEmpleado(eEmpleado empleados[], int tam);
+
+/** \brief Da de baja a un empleado, segun su ID
+ *
+ * \param empleados eEmpleado*
+ * \param tam int
+ * \return void
+ *
+ */
+void eliminarEmpleado(eEmpleado *empleados, int tam);
+
+/** \brief Modifica los valores a elegir por parte del usuario
+ *
+ * \param empleados[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void modificarEmpleado(eEmpleado empleados[], int tam);
+
+/** \brief Ordena por Sector y Apellido a los empleados
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void ordenarXSectorYapellido(eEmpleado x[],int tam);
+
+/** \brief Calcula y muestra el total, promedio y el maximo de los promedios de un empleado
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void promediar(eEmpleado x[], int tam);
+
+/** \brief Muestra al usuario las opciones a elegir para Informar
+ *
+ * \param x[] eEmpleado
+ * \param tam int
+ * \return void
+ *
+ */
+void subMenuOpcionInformar(eEmpleado x[],int tam);
+
