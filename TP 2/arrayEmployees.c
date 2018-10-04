@@ -11,25 +11,24 @@ void menuOpcion(eEmpleado x[],int tam)
         system("cls");
         printf("   MENU OPCIONES\n");
         printf("   ***************\n");
-        printf("   A. Dar de alta\n");
-        printf("                \n");
-        printf("   M. Modificar\n");
-        printf("               \n");
-        printf("   B. Dar de baja\n");
-        printf("               \n ");
-        printf("   I. Informar\n");
+        printf("   A. Dar de alta \n");
+        printf("                  \n");
+        printf("   M. Modificar   \n");
+        printf("                  \n");
+        printf("   B. Dar de baja \n");
+        printf("                  \n");
+        printf("   I. Informar    \n");
         printf("   ***************\n");
         printf("Ingrese una opcion");
-        opcion=getche();
+        opcion=getch();
         opcion=toupper(opcion);
         switch(opcion)
         {
         case 'A':
             system("cls");
-            agregarEmpleado(x,tam);
+            validarLugar(x,tam);
             carga = 'S';
             break;
-
         case 'M':
             if(carga=='S')
             {
@@ -77,7 +76,7 @@ void menuOpcion(eEmpleado x[],int tam)
             printf("Esta opcion es invalida. Intente de nuevo");
         }
     }
-    while(opcion !='S');
+    while(opcion =='S');
 }
 void inicializarEmpleados( eEmpleado x[], int tam)
 {
@@ -107,9 +106,34 @@ int buscarLibre( eEmpleado x[], int tam)
     return indice;
 }
 
+void validarLugar (eEmpleado x[],int tam)
+{
+    int indice;
+    char seguir='s';
+    do
+    {
+        indice = buscarLibre(x,tam);
+        if(indice>=0)
+        {
+            x[indice]=agregarEmpleado();
+                }
+        else
+        {
+            printf("El espacio esta lleno. ");
+            system("pause");
+            break;
+        }
+
+        printf("Desea ingresar otro? s / n \n");
+        seguir=getch();
+    }
+    while(seguir=='s');
+}
+
+
 int buscarEmpleado(eEmpleado x[], int tam)
 {
-    int indice = -1;
+    int indice=-1;
     int i;
     for(i=0; i < tam; i++)
     {
@@ -146,25 +170,11 @@ int cargarId(void)
     return id ++;
 }
 
-void agregarEmpleado(eEmpleado empleados[], int tam)
+eEmpleado agregarEmpleado()
 {
     eEmpleado nuevoEmpleado;
-    int indice;
-
-
     system("cls");
     printf("  *** Alta Empleado ***\n\n");
-
-    indice = buscarLibre(empleados, tam);
-
-    if(indice == -1)
-    {
-        printf("No hay lugar\n\n");
-    }
-    else
-    {
-        indice = buscarEmpleado(empleados, tam);
-
 
             printf("Ingrese nombre: ");
             fflush(stdin);
@@ -183,11 +193,8 @@ void agregarEmpleado(eEmpleado empleados[], int tam)
 
             nuevoEmpleado.isEmpty = 1;
 
-            empleados[indice] = nuevoEmpleado;
-
-        }
-
-    }
+return nuevoEmpleado;
+}
 void mostrarEmpleado(eEmpleado emp)
 {
     printf(("ID  Nombre  Apellido    Sueldo     Sector\n\n"));
@@ -433,10 +440,6 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
 
         printf("          M. Mostrar alumnos ordenados por Sector y Apellido\n");
         printf("                                                             \n ");
-        printf("          A. Ordenar por Apellidos\n");
-        printf("                                                             \n ");
-         printf("          S. Ordenar por Sector\n");
-          printf("                                                             \n ");
         printf("          P. Promedio y Total de salarios\n");
         printf("                                                           \n ");
         printf("          V. Volver");
@@ -465,3 +468,58 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
     }
     while(opcion!='V');
  }
+
+ void validarNumero(char numero[])
+{
+    int i;
+    printf("ingrese numero: ");
+    gets(numero);
+    for(i=0;i<strlen(numero);i++)
+    {
+         while(!(isdigit(numero[i])))
+        {
+            printf("reingrese numero: ");
+             gets(numero);
+
+        }
+    }
+}
+
+void validarApellido(char apellido[])
+{
+    int i;
+    printf("ingrese apellido: ");
+    gets(apellido);
+    for(i=0;i<strlen(apellido);i++)
+    {
+        if(apellido[i]==' ')
+        {
+         break;
+        }
+        while (!(isalpha(apellido[i])))
+        {
+            printf("Reingrese un apellido valido \n");
+            gets(apellido);
+        }
+    }
+}
+
+    void validarNombre(char nombre[])
+{
+    int i;
+    printf("ingrese nombre: ");
+    gets(nombre);
+    for(i=0;i<strlen(nombre);i++)
+    {
+        if(nombre[i]==' ')
+        {
+         break;
+        }
+        while (!(isalpha(nombre[i])))
+        {
+            printf("Reingrese un nombre valido \n");
+            gets(nombre);
+        }
+
+    }
+}

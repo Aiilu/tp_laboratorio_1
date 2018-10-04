@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,6 +50,15 @@ int buscarLibre( eEmpleado x[], int tam);
  */
 int cargarId(void);
 
+/** \brief Busca si hay lugar libre
+ *
+ * \param eEmpleado
+ * \param int
+ * \return void
+ *
+ */
+void validarLugar (eEmpleado x[],int tam);
+
 /** \brief
  *
  * \param x[] eEmpleado
@@ -89,12 +97,10 @@ void mostrarEmpleados(eEmpleado nomina[], int tam);
 
 /** \brief Ingresa los datos de los empleados
  *
- * \param empleados[] eEmpleado
- * \param tam int
- * \return void
+ * \return eEmpleado
  *
  */
-void agregarEmpleado(eEmpleado empleados[], int tam);
+eEmpleado agregarEmpleado();
 
 /** \brief Da de baja a un empleado, segun su ID
  *
@@ -140,4 +146,14 @@ void promediar(eEmpleado x[], int tam);
  *
  */
 void subMenuOpcionInformar(eEmpleado x[],int tam);
+
+void validarNumero(char numero[]);
+
+void validarApellido(char apellido[]);
+
+void validarNombre(char nombre[]);
+
+
+
+
 
