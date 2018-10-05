@@ -200,7 +200,6 @@ return nuevoEmpleado;
 }
 void mostrarEmpleado(eEmpleado emp)
 {
-    printf(("ID  Nombre  Apellido    Sueldo     Sector\n\n"));
     printf("%4d %10s %10s %5.2f  %10d \n\n", emp.id, emp.nombre, emp.apellido, emp.sueldo, emp.sector);
 }
 
@@ -459,10 +458,12 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
         case 'M':
             system("cls");
             ordenarXSectorYapellido(x,tam);
+            system("pause");
             break;
         case 'P':
             system("cls");
             promediar(x,tam);
+                        system("pause");
             break;
         case 'A':
             system("cls");
@@ -500,15 +501,13 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
 void validarApellido(char apellido[])
 {
     int i;
-    printf("ingrese apellido: ");
-    gets(apellido);
     for(i=0;i<strlen(apellido);i++)
     {
         if(apellido[i]==' ')
         {
          break;
         }
-        while (!(isalpha(apellido[i])))
+        while (isdigit(apellido[i]))
         {
             printf("Reingrese un apellido valido \n");
             gets(apellido);
@@ -519,15 +518,13 @@ void validarApellido(char apellido[])
     void validarNombre(char nombre[])
 {
     int i;
-    printf("ingrese nombre: ");
-    gets(nombre);
     for(i=0;i<strlen(nombre);i++)
     {
         if(nombre[i]==' ')
         {
          break;
         }
-        while (!(isalpha(nombre[i])))
+        while (isdigit(nombre[i]))
         {
             printf("Reingrese un nombre valido \n");
             gets(nombre);
