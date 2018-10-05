@@ -18,6 +18,8 @@ void menuOpcion(eEmpleado x[],int tam)
         printf("   B. Dar de baja \n");
         printf("                  \n");
         printf("   I. Informar    \n");
+        printf("                  \n");
+        printf("   S. Salir    \n");
         printf("   ***************\n");
         printf("Ingrese una opcion");
         opcion=getch();
@@ -76,7 +78,7 @@ void menuOpcion(eEmpleado x[],int tam)
             printf("Esta opcion es invalida. Intente de nuevo");
         }
     }
-    while(opcion =='S');
+    while(opcion !='S');
 }
 void inicializarEmpleados( eEmpleado x[], int tam)
 {
@@ -179,15 +181,16 @@ eEmpleado agregarEmpleado()
             printf("Ingrese nombre: ");
             fflush(stdin);
             gets(nuevoEmpleado.nombre);
+            validarNombre(nuevoEmpleado.nombre);
             printf("Ingrese apellido: ");
             fflush(stdin);
             gets(nuevoEmpleado.apellido);
+                        validarApellido(nuevoEmpleado.apellido);
             printf("Ingrese salario: ");
-            fflush(stdin);
+                        fflush(stdin);
             scanf("%f", &nuevoEmpleado.sueldo);
-            printf("Ingrese sector: ");
-            fflush(stdin);
-            scanf("%d", &nuevoEmpleado.sector);
+
+            nuevoEmpleado.sector=validarNumero();
 
             nuevoEmpleado.id=cargarId();
 
@@ -223,6 +226,8 @@ void eliminarEmpleado(eEmpleado empleados[], int tam)
     int id;
     int indice;
     char borrar;
+
+    mostrarEmpleados(empleados, tam);
 
     printf("Ingrese id: ");
     scanf("%d", &id);
@@ -265,6 +270,8 @@ void modificarEmpleado(eEmpleado empleados[], int tam)
     char nuevoApellido[51];
     float nuevoSueldo;
     int nuevoSector;
+
+    mostrarEmpleados(empleados, tam);
 
     printf("Ingrese ID: ");
     scanf("%d", &id);
@@ -394,7 +401,7 @@ void ordenarXSectorYapellido(eEmpleado x[],int tam)
             }
         }
     }
-
+mostrarEmpleados(x, tam);
 }
 
 void promediar(eEmpleado x[], int tam)
@@ -406,7 +413,7 @@ void promediar(eEmpleado x[], int tam)
     int contadorMaximoSueldo=0;
     for (i=0; i<tam; i++)
     {
-        if(x[i].isEmpty==0)
+        if(x[i].isEmpty==1)
         {
             sumaDeSueldos+=x[i].sueldo;
             contadorDeSueldos++;
@@ -417,7 +424,7 @@ void promediar(eEmpleado x[], int tam)
 
     for(i=0; i<tam; i++)
     {
-        if(x[i].isEmpty==0 && x[i].sueldo>promDeSueldos)
+        if(x[i].isEmpty==1 && x[i].sueldo>promDeSueldos)
         {
             mostrarEmpleado(x[i]);
             contadorMaximoSueldo++;
@@ -442,7 +449,7 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
         printf("                                                             \n ");
         printf("          P. Promedio y Total de salarios\n");
         printf("                                                           \n ");
-        printf("          V. Volver");
+        printf("          V. Volver\n");
         printf("        ******************************************************\n ");
         printf("          Ingrese una opcion: ");
         opcion=getch();
@@ -469,20 +476,25 @@ void subMenuOpcionInformar(eEmpleado x[],int tam)
     while(opcion!='V');
  }
 
- void validarNumero(char numero[])
+ int validarNumero()
 {
     int i;
-    printf("ingrese numero: ");
-    gets(numero);
-    for(i=0;i<strlen(numero);i++)
+    char sector[3];
+    int sectorV;
+    printf("Ingrese el sector: ");
+    scanf("%s", sector);
+            fflush(stdin);
+        for(i=0;i<strlen(sector);i++)
     {
-         while(!(isdigit(numero[i])))
+         do
         {
-            printf("reingrese numero: ");
-             gets(numero);
-
-        }
+            printf("reingrese valor: ");
+            fflush(stdin);
+            scanf("%s", sector);
+        }while(!(isdigit(sector[i])));
+    sectorV=atoi(sector);
     }
+    return sectorV;
 }
 
 void validarApellido(char apellido[])

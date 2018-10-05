@@ -26,21 +26,21 @@ void menuOpcion(eEmpleado[],int);
 
 /** \brief inicializa a los empleados
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return void
  *
  */
-void inicializarEmpleados( eEmpleado x[], int tam);
+void inicializarEmpleados( eEmpleado empleados[], int tam);
 
 /** \brief busca espacio libre, y lo devuelve si esta vacio, si no, salta un mensaje de error
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return int
  *
  */
-int buscarLibre( eEmpleado x[], int tam);
+int buscarLibre( eEmpleado empleados[], int tam);
 
 /** \brief carga de manera incremental el ID de un empleado
  *
@@ -57,26 +57,26 @@ int cargarId(void);
  * \return void
  *
  */
-void validarLugar (eEmpleado x[],int tam);
+void validarLugar (eEmpleado empleados[],int tam);
 
 /** \brief
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return int
  *
  */
-int buscarEmpleado(eEmpleado x[], int tam);
+int buscarEmpleado(eEmpleado empleados[], int tam);
 
 /** \brief permite encontrar a un empelado mediante su ID
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \param id int
  * \return int
  *
  */
-int buscarEmpleadoxID(eEmpleado x[], int tam,int id);
+int buscarEmpleadoxID(eEmpleado empleados[], int tam,int id);
 
 /** \brief muestra datos de un empleado
  *
@@ -122,35 +122,52 @@ void modificarEmpleado(eEmpleado empleados[], int tam);
 
 /** \brief Ordena por Sector y Apellido a los empleados
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return void
  *
  */
-void ordenarXSectorYapellido(eEmpleado x[],int tam);
+void ordenarXSectorYapellido(eEmpleado empleados[],int tam);
 
 /** \brief Calcula y muestra el total, promedio y el maximo de los promedios de un empleado
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return void
  *
  */
-void promediar(eEmpleado x[], int tam);
+void promediar(eEmpleado empleados[], int tam);
 
 /** \brief Muestra al usuario las opciones a elegir para Informar
  *
- * \param x[] eEmpleado
+ * \param empleados[] eEmpleado
  * \param tam int
  * \return void
  *
  */
-void subMenuOpcionInformar(eEmpleado x[],int tam);
+void subMenuOpcionInformar(eEmpleado empleados  [],int tam);
 
-void validarNumero(char numero[]);
+/** \brief valida que se ingresen valores numericos
+ *
+ * \return int
+ *
+ */
+int validarNumero();
 
+/** \brief valida que apellido reciba solo chars alfabeticos
+ *
+ * \param apellido[] char
+ * \return void
+ *
+ */
 void validarApellido(char apellido[]);
 
+/** \brief valida que nombre reciba solo chars alfabeticos
+ *
+ * \param nombre[] char
+ * \return void
+ *
+ */
 void validarNombre(char nombre[]);
 
 

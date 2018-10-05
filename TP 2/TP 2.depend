@@ -18,3 +18,20 @@
 	<ctype.h>
 	"arrayEmployees.h"
 
+1538707267 source:c:\users\martin\desktop\nueva carpeta\tp_laboratorio_1\tp 2\arrayemployees.c
+	<conio.h>
+	<ctype.h>
+	"arrayEmployees.h"
+
+1538707290 c:\users\martin\desktop\nueva carpeta\tp_laboratorio_1\tp 2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+
+1538704205 source:c:\users\martin\desktop\nueva carpeta\tp_laboratorio_1\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"arrayEmployees.h"
+
