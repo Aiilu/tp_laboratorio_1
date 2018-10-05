@@ -1,0 +1,2 @@
+
+void menuOpcion(sEmployee*,int);
