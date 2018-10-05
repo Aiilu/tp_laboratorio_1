@@ -3,7 +3,7 @@
 #include <string.h>
 #include <conio.h>
 #include <ctype.h>
-#define EMP 5
+#define EMP 1000
 
 typedef struct
 {
