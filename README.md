@@ -2,4 +2,4 @@
 
 TP1 Calculadora
 
-Hacer una calculadora. (Datos estaticos)
+Hacer una calculadora.
