@@ -72,7 +72,7 @@ int main()
                 printf("     #                  Calculando...               #\n");
                 printf("     ================================================\n");
                 printf("     |                                              |\n");
-                printf("           La suma de %.2f+ %.2f                     \n",numA,numB);
+                printf("           La suma de %.2f + %.2f                     \n",numA,numB);
                 printf("     |                                              |\n");
                 printf("           La resta de %.2f - %.2f                    \n",numA,numB);
                 printf("     |                                              |\n");
@@ -99,11 +99,11 @@ int main()
                 printf("     #                  Resultados                  #\n");
                 printf("     ================================================\n");
                 printf("     |                                              |\n");
-                printf("           El resultado de A + B es: %.2f        \n",sumar(numA,numB));
+                printf("           El resultado de A+B es: %.2f        \n",sumar(numA,numB));
                 printf("     |                                              |\n");
-                printf("           El resultado de A - B es: %.2f        \n",restar(numA,numB));
+                printf("           El resultado de A-B es: %.2f        \n",restar(numA,numB));
                 printf("     |                                              |\n");
-                printf("           El resultado de A * B es: %.2f        \n",multiplicar(numA,numB));
+                printf("           El resultado de A*B es: %.2f        \n",multiplicar(numA,numB));
                 printf("     |                                              |\n");
                 dividir(numA,numB);
                 printf("     |                                              |\n");
@@ -146,5 +146,3 @@ int main()
 
     return 0;
 }
-
-

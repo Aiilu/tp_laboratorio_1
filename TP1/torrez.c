@@ -47,7 +47,7 @@ float dividir(float dividUno, float dividDos)
     {
         division = dividUno/dividDos;
 
-        printf("           El resultado de A / B es: %.2f               \n",division);
+        printf("           El resultado de A/B es: %.2f               \n",division);
     }
     else
     {
@@ -95,4 +95,3 @@ float factorial(float primerFactor, float segundoFactor)
 
 	return 0;
 }
-
