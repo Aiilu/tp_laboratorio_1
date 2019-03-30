@@ -47,7 +47,7 @@ float dividir(float dividUno, float dividDos)
     {
         division = dividUno/dividDos;
 
-        printf("           El resultado de %.2f / %.2f es: %.2f               \n",dividUno,dividDos,division);
+        printf("           El resultado de A / B es: %.2f               \n",division);
     }
     else
     {
@@ -68,12 +68,12 @@ float factorial(float primerFactor, float segundoFactor)
 		{
 			factorUno = factorUno * i;
 		}
-		printf("           El factorial de %.0f! es: %.2i             \n", primerFactor,factorUno);
+		printf("           El factorial de A! es: %.2i             \n",factorUno);
 		printf(" \n");
 	}
 	else
     {
-        printf("         No se puede factorizar el 1er operando: %.0f!\n",primerFactor);
+        printf("         No se puede factorizar el 1er operando: A!\n");
 		printf("         porque es un numero negativo.\n");
 		printf(" \n");
     }
@@ -85,11 +85,11 @@ float factorial(float primerFactor, float segundoFactor)
 
 			factorDos = factorDos * i;
 		}
-		printf("           El factorial de %.0f! es: %.2i             \n",segundoFactor,factorDos);
+		printf("           El factorial de B! es: %.2i             \n",factorDos);
 		printf(" \n");
 	}
 	else {
-		printf("         No se puede factorizar el 2do operando: %.0f!\n",segundoFactor);
+		printf("         No se puede factorizar el 2do operando: B!\n");
 		printf("         porque es un numero negativo.\n");
 	}
 
