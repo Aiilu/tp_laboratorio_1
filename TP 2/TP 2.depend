@@ -35,3 +35,26 @@
 	<stdlib.h>
 	"arrayEmployees.h"
 
+1555883331 source:c:\users\usuario\desktop\tps\tp 2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+
+1555883339 c:\users\usuario\desktop\tps\tp 2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1555883347 source:c:\users\usuario\desktop\tps\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+

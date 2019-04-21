@@ -1,534 +1,816 @@
-#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
+#include <conio.h>
 #include "arrayEmployees.h"
 
-void menuOpcion(eEmpleado x[],int tam)
+void inicializarX(eEmpleado x[],int tam)
 {
-    char opcion;
-    char carga='N';
+    for(int i=0; i<tam; i++)
+    {
+        x[i].isEmpty = VACIO;
+    }
+}
+
+void menuPrincipal(eEmpleado x[],int tam)
+{
+    int opcion;
+    int flag;
+    char seguir = 's';
+    char valOpcion[10];
+
     do
     {
+        system ("COLOR F0");
         system("cls");
-        printf("   MENU OPCIONES\n");
-        printf("   ***************\n");
-        printf("   A. Dar de alta \n");
-        printf("                  \n");
-        printf("   M. Modificar   \n");
-        printf("                  \n");
-        printf("   B. Dar de baja \n");
-        printf("                  \n");
-        printf("   I. Informar    \n");
-        printf("                  \n");
-        printf("   S. Salir    \n");
-        printf("   ***************\n");
-        printf("Ingrese una opcion");
-        opcion=getch();
-        opcion=toupper(opcion);
+        printf("     =================================================\n");
+        printf("     #            Trabajo Practico Nro. 2            #\n");
+        printf("     #                                               #\n");
+        printf("     #           >>>> MENU DE OPCIONES <<<<          #\n");
+        printf("     =================================================\n");
+        printf("     |                                               |\n");
+        printf("                       1- Alta                        \n");
+        printf("     |                                               |\n");
+        printf("                       2- Modificar                   \n");
+        printf("     |                                               |\n");
+        printf("                       3- Baja                        \n");
+        printf("     |                                               |\n");
+        printf("                       4- Informes                    \n");
+        printf("     |                                               |\n");
+        printf("                       5- Salir                       \n");
+        printf("     |                                               |\n");
+        printf("     =================================================\n");
+        printf("                                                      \n");
+        printf("     Ingrese una opcion del menu: ");
+        fflush(stdin);
+        gets(valOpcion);
+
+        opcion = atoi(valOpcion);
+
+        while(opcion == 0)
+        {
+            printf("ERROR. Ingrese un valor valido: ");
+            gets(valOpcion);
+
+            opcion = atoi(valOpcion);
+        }
+
         switch(opcion)
         {
-        case 'A':
+        case 1:
             system("cls");
-            validarLugar(x,tam);
-            carga = 'S';
+            darAlta(x,tam);
+            flag = 1;
             break;
-        case 'M':
-            if(carga=='S')
+        case 2:
+            if(flag == 1)
             {
-                modificarEmpleado(x,tam);
-                system("pause");
-                break;
+                system("cls");
+                darModificacion(x,tam);
             }
             else
             {
-                printf("No se han cargado datos \n");
-                system("pause");
-                break;
+                printf("\n\n");
+                printf("     Primero debe ingresar los datos!\n");
             }
-
-        case 'B':
-            if(carga=='S')
-            {
-               eliminarEmpleado(x,tam);
-               system("pause");
-               break;
-            }
-            else
-            {
-                printf("No se han cargado datos \n");
-                system("pause");
-                break;
-            }
-        case 'I':
-            if(carga=='S')
-            {
-              subMenuOpcionInformar(x,tam);
-              system("pause");
-              break;
-            }
-            else
-            {
-                printf("No se han cargado datos \n");
-                system("pause");
-                break;
-            }
-        case 'S':
             break;
+        case 3:
+            if(flag == 1)
+            {
+                system("cls");
+                darBaja(x,tam);
+            }
+            else
+            {
+                printf("\n\n");
+                printf("     Primero debe ingresar los datos!\n");
+            }
+            break;
+        case 4:
+            if(flag == 1)
+            {
+                menuInformes(x,tam);
 
+            }
+            else
+            {
+                printf("\n\n");
+                printf("     Primero debe ingresar los datos!\n");
+            }
+            break;
+        case 5:
+            system("cls");
+            seguir = 'n';
+
+            printf("     ==========================================\n");
+            printf("     #               Saliendo...              #\n");
+            printf("     ==========================================\n");
+            printf("     |                                        |\n");
+            printf("     |              Hasta luego!!!            |\n");
+            printf("     |                                        |\n");
+            printf("     ==========================================\n");
+
+            break;
         default:
-            printf("Esta opcion es invalida. Intente de nuevo");
-        }
-    }
-    while(opcion !='S');
-}
-void inicializarEmpleados( eEmpleado x[], int tam)
-{
-    int i;
-
-    for(i=0; i < tam; i++)
-    {
-        x[i].isEmpty = 0;
-    }
-}
-
-
-int buscarLibre( eEmpleado x[], int tam)
-{
-    int indice = -1;
-    int i;
-
-    for(i=0; i< tam; i++)
-    {
-
-        if( x[i].isEmpty == 0)
-        {
-            indice = i;
-            break;
-        }
-    }
-    return indice;
-}
-
-void validarLugar (eEmpleado x[],int tam)
-{
-    int indice;
-    char seguir='s';
-    do
-    {
-        indice = buscarLibre(x,tam);
-        if(indice>=0)
-        {
-            x[indice]=agregarEmpleado();
-                }
-        else
-        {
-            printf("El espacio esta lleno. ");
-            system("pause");
-            break;
+            printf("\n\n");
+            printf("     ERROR. Esta opcion no es correcta\n");
         }
 
-        printf("Desea ingresar otro? s / n \n");
-        seguir=getch();
+        fflush(stdin);
+        printf("     Presione ENTER para continuar");
+        getchar();
+
     }
-    while(seguir=='s');
+    while(seguir == 's');
 }
 
-
-int buscarEmpleado(eEmpleado x[], int tam)
+void menuInformes(eEmpleado x[],int tam)
 {
-    int indice=-1;
-    int i;
-    for(i=0; i < tam; i++)
-    {
-        if(x[i].isEmpty == 1)
-        {
-            indice = i;
-            break;
-        }
-    }
-    return indice;
-}
-
-int buscarEmpleadoxID(eEmpleado x[], int tam, int id)
-{
-    int indice = -1;
-    int i;
-    for(i=0; i < tam; i++)
-    {
-
-
-        if( x[i].id == id && x[i].isEmpty == 1)
-        {
-            indice = i;
-            break;
-        }
-    }
-    return indice;
-}
-
-int cargarId(void)
-{
-    static int id = 0;
-
-    return id ++;
-}
-
-eEmpleado agregarEmpleado()
-{
-    eEmpleado nuevoEmpleado;
-    system("cls");
-    printf("  *** Alta Empleado ***\n\n");
-
-            printf("Ingrese nombre: ");
-            fflush(stdin);
-            gets(nuevoEmpleado.nombre);
-            validarNombre(nuevoEmpleado.nombre);
-            printf("Ingrese apellido: ");
-            fflush(stdin);
-            gets(nuevoEmpleado.apellido);
-                        validarApellido(nuevoEmpleado.apellido);
-            printf("Ingrese salario: ");
-                        fflush(stdin);
-            scanf("%f", &nuevoEmpleado.sueldo);
-
-            nuevoEmpleado.sector=validarNumero();
-
-            nuevoEmpleado.id=cargarId();
-
-            nuevoEmpleado.isEmpty = 1;
-
-return nuevoEmpleado;
-}
-void mostrarEmpleado(eEmpleado emp)
-{
-    printf("%4d %10s %10s %5.2f  %10d \n\n", emp.id, emp.nombre, emp.apellido, emp.sueldo, emp.sector);
-}
-
-
-void mostrarEmpleados(eEmpleado nomina[], int tam)
-{
-    int i;
+    char seguir = 's';
+    int opcion;
+    char valOpcion[10];
 
     system("cls");
-    printf(("ID  Nombre  Apellido    Sueldo     Sector\n\n"));
-    for(i=0; i< tam; i++)
-    {
-        if( nomina[i].isEmpty == 1)
-        {
-            mostrarEmpleado(nomina[i]);
-        }
-    }
-}
 
-void eliminarEmpleado(eEmpleado empleados[], int tam)
-{
-
-    int id;
-    int indice;
-    char borrar;
-
-    mostrarEmpleados(empleados, tam);
-
-    printf("Ingrese id: ");
-    scanf("%d", &id);
-
-    indice = buscarEmpleadoxID(empleados, tam, id);
-
-    if( indice == -1)
-    {
-        printf("No hay ningun empleado con el id %d\n", id);
-    }
-    else
-    {
-        mostrarEmpleado(empleados[indice]);
-
-        printf("\nConfirma borrado?: ");
-        fflush(stdin);
-        scanf("%c", &borrar);
-        if(borrar != 's')
-        {
-            printf("Borrado cancelado\n\n");
-        }
-        else
-        {
-            empleados[indice].isEmpty = 0;
-            printf("Se ha eliminado el empleado\n\n");
-        }
-        system("pause");
-    }
-
-}
-
-void modificarEmpleado(eEmpleado empleados[], int tam)
-{
-
-    int id;
-    int indice;
-    char opcion;
-    char modificar;
-    char nuevoNombre[51];
-    char nuevoApellido[51];
-    float nuevoSueldo;
-    int nuevoSector;
-
-    mostrarEmpleados(empleados, tam);
-
-    printf("Ingrese ID: ");
-    scanf("%d", &id);
-
-    indice = buscarEmpleadoxID(empleados, tam, id);
-
-    if( indice == -1)
-    {
-        printf("No hay ningun empleado con el ID %d\n", id);
-    }
-    else
-    {
-        mostrarEmpleado( empleados[indice]);
-
-        printf("\nQue desea Modificar?: \t s-Sueldo. r-Sector. a-Apellido. n-Nombre.");
-        fflush(stdin);
-        scanf("%c", &opcion);
-        opcion=tolower(opcion);
-
-        switch (opcion)
-{
-        case 's':
-
-        printf("\nModifica sueldo?: ");
-        fflush(stdin);
-        scanf("%c", &modificar);
-        if(modificar != 's')
-        {
-            printf("Modificacion cancelada\n\n");
-        }
-        else
-        {
-            printf("Ingrese nuevo sueldo: ");
-            scanf("%f", &nuevoSueldo);
-
-            empleados[indice].sueldo = nuevoSueldo;
-            printf("Se ha modificado el sueldo con exito\n\n");
-        }
-
-        system("pause");
-        break;
-
-        case 'r':
-        printf("\nModifica sector?: ");
-        fflush(stdin);
-        scanf("%c", &modificar);
-        if(modificar != 's')
-        {
-            printf("Modificacion cancelada\n\n");
-        }
-        else
-        {
-            printf("Ingrese nuevo sector: ");
-            scanf("%d", &nuevoSector);
-
-            empleados[indice].sector = nuevoSector;
-            printf("Se ha modificado el sueldo con exito\n\n");
-        }
-
-        system("pause");
-        break;
-
-        case 'n':
-        printf("\nModifica nombre?: ");
-        fflush(stdin);
-        scanf("%c", &modificar);
-        if(modificar != 's')
-        {
-            printf("Modificacion cancelada\n\n");
-        }
-        else
-        {
-            printf("Ingrese nuevo nombre: ");
-            gets(nuevoNombre);
-            strcpy(nuevoNombre,empleados[indice].nombre);
-            printf("Se ha modificado el sueldo con exito\n\n");
-        }
-
-        system("pause");
-        break;
-
-        case 'a':
-        printf("\nModifica nombre?: ");
-        fflush(stdin);
-        scanf("%c", &modificar);
-        if(modificar != 's')
-        {
-            printf("Modificacion cancelada\n\n");
-        }
-        else
-        {
-            printf("Ingrese nuevo nombre: ");
-            gets(nuevoApellido);
-            strcpy(nuevoApellido,empleados[indice].apellido);
-            printf("Se ha modificado el sueldo con exito\n\n");
-        }
-
-        system("pause");
-        break;
-        default:
-        printf("La opción ingresada no existe");
-
-}
-}
-}
-
-void ordenarXSectorYapellido(eEmpleado x[],int tam)
-{
-    int i, j;
-    eEmpleado auxEmpleado;
-
-    for(i=0; i<tam -1; i++)
-    {
-        for(j = i +1; j < tam; j++)
-        {
-            if( strcmp(x[i].apellido, x[j].apellido) > 0)
-            {
-                auxEmpleado = x[i];
-                x[i] = x[j];
-                x[j] = auxEmpleado;
-            }
-            else if( strcmp(x[i].apellido, x[j].apellido) == 0 && x[i].sector > x[j].sector)
-            {
-                auxEmpleado = x[i];
-                x[i] = x[j];
-                x[j] = auxEmpleado;
-            }
-        }
-    }
-mostrarEmpleados(x, tam);
-}
-
-void promediar(eEmpleado x[], int tam)
-{
-    int i;
-    int contadorDeSueldos=0;
-    float sumaDeSueldos=0;
-    float promDeSueldos;
-    int contadorMaximoSueldo=0;
-    for (i=0; i<tam; i++)
-    {
-        if(x[i].isEmpty==1)
-        {
-            sumaDeSueldos+=x[i].sueldo;
-            contadorDeSueldos++;
-        }
-    }
-    promDeSueldos=sumaDeSueldos/contadorDeSueldos;
-    printf("La suma de los sueldos es de: %f \n el promedio total seria: %f \n", sumaDeSueldos, promDeSueldos);
-
-    for(i=0; i<tam; i++)
-    {
-        if(x[i].isEmpty==1 && x[i].sueldo>promDeSueldos)
-        {
-            mostrarEmpleado(x[i]);
-            contadorMaximoSueldo++;
-        }
-    }
-    printf("La cantidad de empleados que superan el sueldo promedio es de: %d \n ", contadorMaximoSueldo);
-
-    system("pause");
-}
-
-void subMenuOpcionInformar(eEmpleado x[],int tam)
- {
-    char opcion;
     do
     {
-        system("cls");
-        printf("        ****************************************************\n ");
-        printf("                             Informes    \n ");
-        printf("        ******************************************************\n ");
+        printf("     =================================================\n");
+        printf("     #                                               #\n");
+        printf("     #               >>>> INFORMES <<<<              #\n");
+        printf("     #                                               #\n");
+        printf("     =================================================\n");
+        printf("     |                                               |\n");
+        printf("         1- Mostrar ordenados por Sector/Apellido     \n");
+        printf("     |                                               |\n");
+        printf("         2- Promedio y Total de Salarios              \n");
+        printf("     |                                               |\n");
+        printf("         3- Salir                                      \n");
+        printf("     |                                               |\n");
+        printf("     =================================================\n");
+        printf("                                                      \n");
+        printf("     Ingrese una opcion del menu: ");
+        gets(valOpcion);
 
-        printf("          M. Mostrar alumnos ordenados por Sector y Apellido\n");
-        printf("                                                             \n ");
-        printf("          P. Promedio y Total de salarios\n");
-        printf("                                                           \n ");
-        printf("          V. Volver\n");
-        printf("        ******************************************************\n ");
-        printf("          Ingrese una opcion: ");
-        opcion=getch();
-        opcion=toupper(opcion);
+        opcion = atoi(valOpcion);
+
+        while(opcion == 0)
+        {
+            printf("ERROR. Ingrese un valor valido: ");
+            gets(valOpcion);
+
+            opcion = atoi(valOpcion);
+        }
+
         switch(opcion)
         {
-        case 'M':
+        case 1:
             system("cls");
-            ordenarXSectorYapellido(x,tam);
+            ordenar(x,tam);
             system("pause");
             break;
-        case 'P':
+        case 2:
             system("cls");
             promediar(x,tam);
-                        system("pause");
+            system("pause");
             break;
-        case 'A':
-            system("cls");
+        case 3:
+            seguir = 'n';
             break;
-
-        case 'S':
-            system("cls");
-            break;
+        default:
+            printf("Esta opcion no es valida\n");
+            system("pause");
         }
-    }
-    while(opcion!='V');
- }
 
- int validarNumero()
-{
-    int i;
-    char sector[3];
-    int sectorV;
-    printf("Ingrese el sector: ");
-    scanf("%s", sector);
-            fflush(stdin);
-        for(i=0;i<strlen(sector);i++)
-    {
-         do
-        {
-            printf("reingrese valor: ");
-            fflush(stdin);
-            scanf("%s", sector);
-        }while(!(isdigit(sector[i])));
-    sectorV=atoi(sector);
+        system("cls");
     }
-    return sectorV;
+    while(seguir == 's');
+
 }
 
-void validarApellido(char apellido[])
+int buscarLibre(eEmpleado x[],int tam)
 {
-    int i;
-    for(i=0;i<strlen(apellido);i++)
+    int indice = -1;
+
+    for(int i=0; i<tam; i++)
     {
-        if(apellido[i]==' ')
+        if(x[i].isEmpty == VACIO)
         {
-         break;
-        }
-        while (isdigit(apellido[i]))
-        {
-            printf("Reingrese un apellido valido \n");
-            gets(apellido);
+            indice = i;
+            break;
         }
     }
+
+    return indice;
 }
 
-    void validarNombre(char nombre[])
+int buscarXid(eEmpleado x[],int tam, int id)
 {
-    int i;
-    for(i=0;i<strlen(nombre);i++)
+    int indice = -1;
+
+    for(int i=0; i<tam; i++)
     {
-        if(nombre[i]==' ')
+        if(x[i].id == id && x[i].isEmpty == OCUPADO)
         {
-         break;
+            indice = i;
+            break;
         }
-        while (isdigit(nombre[i]))
+    }
+
+    return indice;
+}
+
+void darAlta(eEmpleado x[],int tam)
+{
+    int index;
+    char seguir = 's';
+    char nombre[51];
+    char apellido[51];
+    char sueldo[10];
+    char sector[5];
+
+    do
+    {
+        printf("     =================================================\n");
+        printf("     #                                               #\n");
+        printf("     #              >>>> Alta Empleado <<<<          #\n");
+        printf("     #                                               #\n");
+        printf("     =================================================\n");
+
+        index = buscarLibre(x,tam);
+
+        if(index == -1)
         {
-            printf("Reingrese un nombre valido \n");
+            printf("     No hay mas espacio para cargar\n");
+            printf("\n\n");
+            system("pause");
+            break;
+        }
+        else
+        {
+            printf("     Ingrese nombre: ");
+            fflush(stdin);
             gets(nombre);
+
+            validarString(nombre);
+
+            strcpy(x[index].nombre,nombre);
+
+            printf("     Ingrese apellido: ");
+            fflush(stdin);
+            gets(apellido);
+
+            validarString(apellido);
+
+            strcpy(x[index].apellido,apellido);
+
+            printf("     Ingrese sueldo: ");
+            fflush(stdin);
+            gets(sueldo);
+
+            x[index].sueldo = validarFloat(sueldo);
+
+            //x[index].sueldo = atof(sueldo);
+
+            /*while(x[index].sueldo == 0)
+            {
+                printf("Reingrese un valor numerico: ");
+                gets(sueldo);
+
+                x[index].sueldo = atof(sueldo);
+            }*/
+
+            printf("     Ingrese sector: ");
+            fflush(stdin);
+            gets(sector);
+
+            /*for(int i=0; i<strlen(sector); i++)
+            {
+                valsec = sector[i];
+                x[index].sector = atoi(valsec);
+
+                if(x[index].sector == 0)
+                {
+                    printf("Reingrese un valor numerico: ");
+                    i=0;
+                    gets(sector);
+
+                    //x[index].sector = atoi(valsec);
+                }
+
+            }*/
+
+            x[index].sector = atoi(sector);
+
+            while(x[index].sector == 0)
+            {
+                printf("ERROR. Ingrese un valor valido: ");
+                gets(sector);
+
+                x[index].sector = atoi(sector);
+            }
+
+            x[index].id  = cargarID();
+
+            x[index].isEmpty = OCUPADO;
+
+            printf("\n\n");
+
+            printf("     Empleado cargado con exito!!\n");
+
+            printf("\n\n");
+
+            printf("Desea ingresar otro? s/n: ");
+            fflush(stdin);
+            scanf("%c",&seguir);
+
+            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+            {
+                printf("La opcion ingresada no es valida\n");
+
+                printf("Desea ingresar otro? s/n: ");
+                fflush(stdin);
+                scanf("%c",&seguir);
+            }
         }
 
+        system("cls");
+
     }
+    while(seguir == 's' || seguir =='S');
+
+}
+
+int cargarID()
+{
+    static int id = 1;
+
+    return id++;
+}
+
+void mostrarEmpleado(eEmpleado x)
+{
+    printf("%2d %4s %8s %14.2f %7d\n",x.id,x.nombre,x.apellido,x.sueldo,x.sector);
+}
+
+void mostrarEmpleados(eEmpleado x[],int tam)
+{
+    int cont = 0;
+
+    system("cls");
+
+    printf("     =================================================\n");
+    printf("     #                                               #\n");
+    printf("     #               >>>> Empleados <<<<             #\n");
+    printf("     #                                               #\n");
+    printf("     =================================================\n");
+    printf("\n\n");
+    printf(" ID  Nombre  Apellido    Sueldo     Sector\n\n");
+
+    for(int i=0; i<tam; i++)
+    {
+        if(x[i].isEmpty == OCUPADO)
+        {
+            cont++;
+            mostrarEmpleado(x[i]);
+        }
+    }
+
+    if(cont == 0)
+    {
+        printf("     No hay ningun empleado que mostrar\n");
+    }
+}
+
+void darModificacion(eEmpleado x[],int tam)
+{
+    int id;
+    char valId[10];
+    int opcion;
+    int indice;
+    char seguir;
+    char nuevoNombre[51];
+    char nuevoApellido[51];
+    char valOpcion[10];
+    char nuevoSalario[10];
+    char nuevoSector[5];
+
+    mostrarEmpleados(x,tam);
+
+    printf("\n\n");
+
+    printf("Ingrese el ID del empleado a modificar: ");
+    gets(valId);
+
+    id = atoi(valId);
+
+    while(id == 0)
+    {
+        printf("ERROR. Ingrese un valor valido: ");
+        gets(valId);
+
+        id = atoi(valId);
+    }
+
+    indice = buscarXid(x,tam,id);
+
+    if(indice == -1)
+    {
+        printf("No hay ningun empleado con el ID %d\n",id);
+    }
+    else
+    {
+        system("cls");
+        printf("     =================================================\n");
+        printf("     #                                               #\n");
+        printf("     #               >>>> Empleado <<<<              #\n");
+        printf("     #                                               #\n");
+        printf("     =================================================\n");
+
+        mostrarEmpleado(x[indice]);
+
+        printf("Que desea modificar?\n");
+        printf("1. Nombre\n2.Apellido\n3.Salario\n4.Sector\n");
+        fflush(stdin);
+        gets(valOpcion);
+
+        opcion = atoi(valOpcion);
+
+        while(opcion == 0)
+        {
+            printf("ERROR. Ingrese un valor valido: ");
+            gets(valOpcion);
+
+            opcion = atoi(valOpcion);
+        }
+
+        switch(opcion)
+        {
+        case 1:
+            system("cls");
+            printf("     =================================================\n");
+            printf("     #                                               #\n");
+            printf("     #           >>>> Modificar nombre <<<<          #\n");
+            printf("     #                                               #\n");
+            printf("     =================================================\n");
+            printf("Esta seguro de esta modificacion? s/n \n");
+            fflush(stdin);
+            scanf("%c",&seguir);
+
+            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+            {
+                printf("La opcion ingresada no es valida\n");
+
+                printf("Desea ingresar otro? s/n: ");
+                fflush(stdin);
+                scanf("%c",&seguir);
+            }
+
+            if(seguir == 's' || seguir == 'S')
+            {
+                printf("Ingrese un nuevo nombre: ");
+                fflush(stdin);
+                gets(nuevoNombre);
+
+
+                for(int i=0; i<strlen(nuevoNombre); i++)
+                {
+                    while(isalpha(nuevoNombre[i]) == 0)
+                    {
+                        printf("Reingrese nombre: ");
+                        fflush(stdin);
+                        gets(nuevoNombre);
+                        i=0;
+                    }
+                }
+
+                strcpy(x[indice].nombre,nuevoNombre);
+
+                printf("Modificacion exitosa!\n");
+
+            }
+            else
+            {
+                printf("Modificacion cancelada\n");
+            }
+            break;
+        case 2:
+            system("cls");
+            printf("     =================================================\n");
+            printf("     #                                               #\n");
+            printf("     #           >>>> Modificar apellido <<<<        #\n");
+            printf("     #                                               #\n");
+            printf("     =================================================\n");
+            printf("Esta seguro de esta modificacion? s/n \n");
+            fflush(stdin);
+            scanf("%c",&seguir);
+
+            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+            {
+                printf("La opcion ingresada no es valida\n");
+
+                printf("Desea ingresar otro? s/n: ");
+                fflush(stdin);
+                scanf("%c",&seguir);
+            }
+
+            if(seguir == 's' || seguir == 'S')
+            {
+                printf("Ingrese un nuevo apellido: ");
+                fflush(stdin);
+                gets(nuevoApellido);
+
+
+                for(int i=0; i<strlen(nuevoApellido); i++)
+                {
+                    while(isalpha(nuevoApellido[i]) == 0)
+                    {
+                        printf("Reingrese apellido: ");
+                        fflush(stdin);
+                        gets(nuevoApellido);
+                        i=0;
+                    }
+                }
+
+                strcpy(x[indice].apellido,nuevoApellido);
+
+                printf("Modificacion exitosa!\n");
+
+            }
+            else
+            {
+                printf("Modificacion cancelada\n");
+            }
+            break;
+        case 3:
+            system("cls");
+            printf("     =================================================\n");
+            printf("     #                                               #\n");
+            printf("     #           >>>> Modificar salario <<<<         #\n");
+            printf("     #                                               #\n");
+            printf("     =================================================\n");
+            printf("Esta seguro de esta modificacion? s/n \n");
+            fflush(stdin);
+            scanf("%c",&seguir);
+
+            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+            {
+                printf("La opcion ingresada no es valida\n");
+
+                printf("Desea ingresar otro? s/n: ");
+                fflush(stdin);
+                scanf("%c",&seguir);
+            }
+
+            if(seguir == 's' || seguir == 'S')
+            {
+                printf("Ingrese un nuevo salario: ");
+                fflush(stdin);
+                gets(nuevoSalario);
+
+                x[indice].sueldo = atof(nuevoSalario);
+
+                while(x[indice].sueldo == 0)
+                {
+                    printf("Reingrese un valor numerico: ");
+                    fflush(stdin);
+                    gets(nuevoSalario);
+
+                    x[indice].sueldo = atof(nuevoSalario);
+                }
+
+                printf("Modificacion exitosa!\n");
+
+            }
+            else
+            {
+                printf("Modificacion cancelada\n");
+            }
+            break;
+        case 4:
+            system("cls");
+            printf("     =================================================\n");
+            printf("     #                                               #\n");
+            printf("     #            >>>> Modificar sector <<<<         #\n");
+            printf("     #                                               #\n");
+            printf("     =================================================\n");
+            printf("Esta seguro de esta modificacion? s/n \n");
+            fflush(stdin);
+            scanf("%c",&seguir);
+
+            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+            {
+                printf("La opcion ingresada no es valida\n");
+
+                printf("Desea ingresar otro? s/n: ");
+                fflush(stdin);
+                scanf("%c",&seguir);
+            }
+
+            if(seguir == 's' || seguir == 'S')
+            {
+                printf("Ingrese un nuevo sector: ");
+                fflush(stdin);
+                gets(nuevoSector);
+
+                x[indice].sector = atoi(nuevoSector);
+
+                while(x[indice].sector == 0)
+                {
+                    printf("Reingrese un valor numerico: ");
+                    fflush(stdin);
+                    gets(nuevoSector);
+
+                    x[indice].sector = atoi(nuevoSector);
+                }
+
+                printf("Modificacion exitosa!\n");
+
+            }
+            else
+            {
+                printf("Modificacion cancelada\n");
+            }
+            break;
+        default:
+            printf("Opcion incorrecta\n");
+        }
+    }
+}
+
+void darBaja(eEmpleado x[],int tam)
+{
+    int id;
+    char valId[10];
+    int indice;
+    char seguir;
+
+    mostrarEmpleados(x,tam);
+
+    printf("Ingrese ID empleado a eliminar: ");
+    gets(valId);
+
+    id = atoi(valId);
+
+    while(id == 0)
+    {
+        printf("ERROR. Ingrese un valor valido: ");
+        gets(valId);
+
+        id = atoi(valId);
+    }
+
+
+    indice = buscarXid(x,tam,id);
+
+    printf("\n\n");
+
+    if(indice == -1)
+    {
+        printf("No hay ningun empleado con el ID %d",id);
+    }
+    else
+    {
+        mostrarEmpleado(x[indice]);
+
+        printf("Esta seguro de querer borrar este empleado? s/n: \n");
+        fflush(stdin);
+        scanf("%c",&seguir);
+
+        while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
+        {
+            printf("La opcion ingresada no es valida\n");
+
+            printf("Desea ingresar otro? s/n: ");
+            fflush(stdin);
+            scanf("%c",&seguir);
+        }
+
+        if(seguir == 's' || seguir == 'S')
+        {
+            x[indice].isEmpty = VACIO;
+            printf("Empleado eliminado con exito\n");
+        }
+        else
+        {
+            printf("Baja cancelada\n");
+        }
+    }
+}
+
+void ordenar(eEmpleado x[],int tam)
+{
+    printf("     =================================================\n");
+    printf("     #                                               #\n");
+    printf("     #           >>>> Ordenar empleados  <<<<        #\n");
+    printf("     #                                               #\n");
+    printf("     =================================================\n");
+
+    eEmpleado aux;
+
+    for(int i=0; i<tam-1; i++)
+    {
+        for(int j=i+1; j<tam; j++)
+        {
+            if(strcmp(x[i].apellido,x[j].apellido)>0)
+            {
+                aux = x[i];
+                x[i] = x[j];
+                x[j] = aux;
+            }
+            else if(strcmp(x[i].apellido,x[j].apellido) == 0 && x[i].sector > x[j].sector)
+            {
+                aux = x[i];
+                x[i] = x[j];
+                x[j] = aux;
+            }
+        }
+    }
+
+    mostrarEmpleados(x,tam);
+}
+
+void promediar(eEmpleado x[],int tam)
+{
+    printf("     =================================================\n");
+    printf("     #                                               #\n");
+    printf("     #      >>>> Promedio y Total de Salarios <<<<    \n");
+    printf("     #                                               #\n");
+    printf("     =================================================\n");
+
+    int contSueldos = 0;
+    float sumaSueldos = 0;
+    int contMaxSueldo = 0;
+    float promSueldos;
+    int esta = 0;
+
+    for(int i=0; i<tam; i++)
+    {
+        if(x[i].isEmpty == OCUPADO)
+        {
+            esta++;
+            contSueldos++;
+            sumaSueldos+=x[i].sueldo;
+        }
+    }
+
+    if(esta == 0)
+    {
+        printf("     No hay empleados\n");
+    }
+    else
+    {
+        promSueldos = sumaSueldos/contSueldos;
+
+    printf("La suma total de los salarios es de: %.2f y el promedio total seria: %.2f\n", sumaSueldos,promSueldos);
+
+    for(int i=0; i<tam; i++)
+    {
+        if(x[i].isEmpty == OCUPADO && x[i].sueldo > promSueldos)
+        {
+            mostrarEmpleado(x[i]);
+            contMaxSueldo++;
+            printf("La cant de empleados que superan el sueldo promedio  es de: %d\n",contMaxSueldo);
+        }
+    }
+    }
+}
+
+void validarString(char x[])
+{
+    for(int i=0; i<strlen(x); i++)
+    {
+        while(isalpha(x[i]) == 0)
+        {
+            printf("Reingrese solo caracteres alfabeticos: ");
+            fflush(stdin);
+            gets(x);
+            i=0;
+        }
+    }
+}
+
+float validarFloat(char sueldo[])
+{
+    float sueldoK;
+
+    for(int i=0; i<strlen(sueldo); i++)
+    {
+           if(sueldo[i] == ',')
+            {
+                sueldo[i] = '.';
+            }
+    }
+
+    sueldoK = atof(sueldo);
+
+    while(sueldoK == 0)
+    {
+        printf("Reingrese un valor numerico: ");
+        gets(sueldo);
+
+        sueldoK = atof(sueldo);
+    }
+
+    return sueldoK;
 }
