@@ -31,4 +31,7 @@ void darBaja(eEmpleado[],int);
 void ordenar(eEmpleado[],int);
 void promediar(eEmpleado[],int);
 void validarString(char x[]);
+int validarEntero(char entero[]);
 float validarFloat(char sueldo[]);
+void comapunto(char sueldo[]);
+char validarSeguir();
