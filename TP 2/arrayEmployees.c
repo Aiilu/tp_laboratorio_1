@@ -276,18 +276,7 @@ void darAlta(eEmpleado x[],int tam)
 
             printf("\n\n");
 
-            printf("     Desea ingresar otro? s/n: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
-
-            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-            {
-                printf("     La opcion ingresada no es valida\n");
-
-                printf("     Desea ingresar otro? s/n: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
-            }
+            seguir = validarSeguir();
 
         }
 
@@ -395,18 +384,8 @@ void darModificacion(eEmpleado x[],int tam)
             printf("     #           >>>> Modificar nombre <<<<          #\n");
             printf("     #                                               #\n");
             printf("     =================================================\n");
-            printf("     Esta seguro de esta modificacion? s/n: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
 
-            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-            {
-                printf("     La opcion ingresada no es valida\n");
-
-                printf("     Desea ingresar otro? s/n: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
-            }
+            seguir = validarSeguir();
 
             if(seguir == 's' || seguir == 'S')
             {
@@ -435,18 +414,8 @@ void darModificacion(eEmpleado x[],int tam)
             printf("     #           >>>> Modificar apellido <<<<        #\n");
             printf("     #                                               #\n");
             printf("     =================================================\n");
-            printf("     Esta seguro de esta modificacion? s/n: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
 
-            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-            {
-                printf("     La opcion ingresada no es valida\n");
-
-                printf("     Desea ingresar otro? s/n: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
-            }
+            seguir = validarSeguir();
 
             if(seguir == 's' || seguir == 'S')
             {
@@ -475,18 +444,8 @@ void darModificacion(eEmpleado x[],int tam)
             printf("     #           >>>> Modificar salario <<<<         #\n");
             printf("     #                                               #\n");
             printf("     =================================================\n");
-            printf("     Esta seguro de esta modificacion? s/n: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
 
-            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-            {
-                printf("     La opcion ingresada no es valida\n");
-
-                printf("     Desea ingresar otro? s/n: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
-            }
+            seguir = validarSeguir();
 
             if(seguir == 's' || seguir == 'S')
             {
@@ -513,18 +472,8 @@ void darModificacion(eEmpleado x[],int tam)
             printf("     #            >>>> Modificar sector <<<<         #\n");
             printf("     #                                               #\n");
             printf("     =================================================\n");
-            printf("     Esta seguro de esta modificacion? s/n :");
-            fflush(stdin);
-            scanf("%c",&seguir);
 
-            while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-            {
-                printf("     La opcion ingresada no es valida\n");
-
-                printf("     Desea ingresar otro? s/n: ");
-                fflush(stdin);
-                scanf("%c",&seguir);
-            }
+            seguir = validarSeguir();
 
             if(seguir == 's' || seguir == 'S')
             {
@@ -580,19 +529,7 @@ void darBaja(eEmpleado x[],int tam)
         printf("     ID  Nombre  Apellido    Sueldo     Sector\n\n");
         mostrarEmpleado(x[indice]);
 
-
-        printf("     Esta seguro de querer borrar este empleado? s/n: ");
-        fflush(stdin);
-        scanf("%c",&seguir);
-
-        while(seguir !='s' && seguir !='S' && seguir !='n' && seguir !='N')
-        {
-            printf("     La opcion ingresada no es valida\n");
-
-            printf("      Desea ingresar otro? s/n: ");
-            fflush(stdin);
-            scanf("%c",&seguir);
-        }
+        seguir = validarSeguir();
 
         if(seguir == 's' || seguir == 'S')
         {
@@ -677,8 +614,6 @@ void promediar(eEmpleado x[],int tam)
 
         printf("\n\n");
 
-    }
-
         for(int i=0; i<tam; i++)
         {
             if(x[i].isEmpty == OCUPADO && x[i].sueldo > promSueldos)
@@ -699,6 +634,8 @@ void promediar(eEmpleado x[],int tam)
         {
             printf("\n\n");
             printf("     La cant de empleados que superan el sueldo promedio  es de: %d\n",contMaxSueldo);
+        }
+
         }
 }
 
@@ -785,15 +722,15 @@ char validarSeguir()
 {
     char seguir;
 
-    printf("Desea continuar? s/n: ");
+    printf("     Desea continuar? s/n: ");
     fflush(stdin);
     seguir = getchar();
     seguir = toupper(seguir);
 
-    while(seguir != 'S' && seguir !='N' && seguir !='n' && seguir !='s')
+    while(seguir != 'S'  && seguir !='N' && seguir !='n' && seguir !='s')
     {
-        printf("ERROR. Esta opcion no es valida\n");
-        printf("Desea continuar? s/n: ");
+        printf("     ERROR. Esta opcion no es valida\n");
+        printf("     Desea continuar? s/n: ");
         fflush(stdin);
         seguir = getchar();
         seguir = toupper(seguir);
