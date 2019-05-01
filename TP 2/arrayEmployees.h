@@ -19,7 +19,7 @@ typedef struct
     int isEmpty;
 } eEmpleado;
 
-/** \brief inicializa a los empleados
+/** \brief Inicializa a los empleados
  *
  * \param eEmpleado[]
  * \param int
@@ -28,7 +28,7 @@ typedef struct
  */
 void inicializarX(eEmpleado[],int);
 
-/** \brief muestra las opciones al usuario
+/** \brief Muestra las opciones al usuario
  *
  * \param eEmpleado[]
  * \param int
@@ -37,7 +37,7 @@ void inicializarX(eEmpleado[],int);
  */
 void menuPrincipal(eEmpleado[],int);
 
-/** \brief Muestra al usuario las opciones a elegir para Informar
+/** \brief Muestra al usuario los informes disponibles
  *
  * \param eEmpleado[]
  * \param int
@@ -46,7 +46,7 @@ void menuPrincipal(eEmpleado[],int);
  */
 void menuInformes(eEmpleado[],int);
 
-/** \brief busca espacio libre, y lo devuelve si esta vacio, si no, salta un mensaje de error
+/** \brief Busca espacio libre, y lo devuelve si esta vacio, si no, salta un mensaje de error
  *
  * \param Eempleado[]
  * \param int
@@ -55,7 +55,7 @@ void menuInformes(eEmpleado[],int);
  */
 int buscarLibre(eEmpleado[],int);
 
-/** \brief permite encontrar a un empleado mediante su ID
+/** \brief Permite encontrar a un empleado mediante su ID
  *
  * \param Eempleado[]
  * \param int
@@ -65,7 +65,7 @@ int buscarLibre(eEmpleado[],int);
  */
 int buscarXid(eEmpleado[],int,int);
 
-/** \brief carga de manera incremental el ID de un empleado
+/** \brief Carga de manera incremental el ID de un empleado
  *
  * \param void
  * \return int
@@ -73,7 +73,7 @@ int buscarXid(eEmpleado[],int,int);
  */
 int cargarID();
 
-/** \brief Ingresa los datos de los empleados y carga secuencialmente(pregunta si deseas continuar)
+/** \brief Ingresa los datos de los empleados y carga secuencialmente(pregunta si desea continuar)
  *
  * \param eEmpleado[]
  * \param int
@@ -82,7 +82,7 @@ int cargarID();
  */
 void darAlta(eEmpleado[],int);
 
-/** \brief muestra datos de un empleado
+/** \brief Muestra datos de un empleado
  *
  * \param eEmpleado
  * \return void
@@ -90,7 +90,7 @@ void darAlta(eEmpleado[],int);
  */
 void mostrarEmpleado(eEmpleado x);
 
-/** \brief muestra los datos de todos los empleados mediante un recorrido de todo el array
+/** \brief Muestra los datos de todos los empleados mediante un recorrido de todo el array
  *
  * \param eEmpleado[]
  * \param int
@@ -117,7 +117,7 @@ void darModificacion(eEmpleado[],int);
  */
 void darBaja(eEmpleado[],int);
 
-/** \brief Ordena por Sector y Apellido a los empleados
+/** \brief Ordena a los empleados por apellido y sector
  *
  * \param eEmpleado[]
  * \param int
@@ -126,7 +126,7 @@ void darBaja(eEmpleado[],int);
  */
 void ordenar(eEmpleado[],int);
 
-/** \brief Calcula y muestra el total, promedio y el maximo de los promedios de un empleado
+/** \brief Calcula y muestra el salario total y promedio de los empleados, tambien muestra los empleados que tienen un salario mayor al promedio
  *
  * \param eEmpleado[]
  * \param int
@@ -135,7 +135,7 @@ void ordenar(eEmpleado[],int);
  */
 void promediar(eEmpleado[],int);
 
-/** \brief valida que una cadena de caracteres reciba solo chars alfabeticos
+/** \brief Valida que una cadena de caracteres reciba solo chars alfabeticos
  *
  * \param char[]
  * \return void
@@ -143,7 +143,7 @@ void promediar(eEmpleado[],int);
  */
 void validarString(char x[]);
 
-/** \brief valida que se ingresen solo valores numericos y positivos, ingresa en modo char y si esta todo ok, hace la conversion
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a cero o positivo, si no muestra mensaje de error
  *
  * \param char[]
  * \return int
@@ -151,7 +151,7 @@ void validarString(char x[]);
  */
 int validarEntero(char entero[]);
 
-/** \brief valida que se ingresen solo valores numericos y positivos, ingresa en modo char y si esta todo ok, hace la conversion
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a cero o positivo, si no muestra mensaje de error
  *
  * \param char[]
  * \return float
@@ -159,7 +159,7 @@ int validarEntero(char entero[]);
  */
 float validarFloat(char sueldo[]);
 
-/** \brief recorre el array buscando una coma, una vez encontrada la cambia a un (.),de forma que se permita ingresar un salario con coma o punto
+/** \brief Recorre el array buscando una coma, en el caso de encontrarla la reemplaza por un punto, de forma que se permita ingresar un salario con coma
  *
  * \param char[]
  * \return void
@@ -167,7 +167,7 @@ float validarFloat(char sueldo[]);
  */
 void comapunto(char sueldo[]);
 
-/** \brief valida que se ingresen solo char s/n
+/** \brief Pregunta si desea continuar, en caso de ingresar algo diferente a "s" o "n", muestra mensaje de error
  *
  * \return char
  *

@@ -22,7 +22,7 @@ void menuPrincipal(eEmpleado x[],int tam)
 
     do
     {
-        system ("COLOR F0");
+        system ("COLOR B0");
         system("cls");
         printf("     =================================================\n");
         printf("     #            Trabajo Practico Nro. 2            #\n");
@@ -166,7 +166,7 @@ void menuInformes(eEmpleado x[],int tam)
             seguir = 'n';
             break;
         default:
-            printf("Esta opcion no es valida\n");
+            printf("     ERROR. Esta opcion no es correcta\n");
             printf("\n\n");
             system("pause");
             system("cls");
@@ -636,7 +636,7 @@ void promediar(eEmpleado x[],int tam)
             printf("     La cant de empleados que superan el sueldo promedio  es de: %d\n",contMaxSueldo);
         }
 
-        }
+    }
 }
 
 void validarString(char x[])
@@ -645,7 +645,7 @@ void validarString(char x[])
     {
         while(isalpha(x[i]) == 0 || strlen(x)>51)
         {
-            printf("     Reingrese solo caracteres alfabeticos no mayores de 51: ");
+            printf("     Reingrese solo caracteres alfabeticos <51: ");
             fflush(stdin);
             gets(x);
             i=0;
@@ -659,14 +659,9 @@ float validarFloat(char sueldo[])
 
     for(int i=0; i<strlen(sueldo); i++)
     {
-        if(sueldo[i] == ',')
-        {
-            sueldo[i] = '.';
-        }
-
         sueldoK = atof(sueldo);
 
-        while(isalpha(sueldo[i]) != 0 || sueldoK < 0)
+        while(isalpha(sueldo[i]) != 0 || sueldoK <= 0 || sueldo[i] == ' ')
         {
             printf("     Reingrese un valor numerico y positivo: ");
             fflush(stdin);
@@ -704,7 +699,7 @@ int validarEntero(char entero[])
 
         entero1 = atoi(entero);
 
-        while(isalpha(entero[i]) != 0 || entero1 < 0)
+        while(isalpha(entero[i]) != 0 || entero1 <= 0 || entero[i] == ' ' || entero[i] == ',' || entero[i] == '.')
         {
             printf("     Reingrese un valor numerico y positivo: ");
             fflush(stdin);
