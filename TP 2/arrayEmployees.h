@@ -7,7 +7,7 @@
 #include <conio.h>
 #define OCUPADO 1
 #define VACIO 0
-#define T 3
+#define T 1000
 
 typedef struct
 {
@@ -159,7 +159,7 @@ int validarEntero(char entero[]);
  */
 float validarFloat(char sueldo[]);
 
-/** \brief Recorre el array buscando una coma, en el caso de encontrarla la reemplaza por un punto, de forma que se permita ingresar un salario con coma
+/** \brief Recorre la cadena buscando una coma, en el caso de encontrarla la reemplaza por un punto, de forma que se permita ingresar un salario con coma
  *
  * \param char[]
  * \return void

@@ -35,7 +35,7 @@
 	<stdlib.h>
 	"arrayEmployees.h"
 
-1556634762 source:c:\users\usuario\desktop\tps\tp 2\arrayemployees.c
+1556721711 source:c:\users\usuario\desktop\tps\tp 2\arrayemployees.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -51,6 +51,29 @@
 	<conio.h>
 
 1556495506 source:c:\users\usuario\desktop\tps\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+
+1556495506 source:c:\users\usuario\desktop\tps\tp 2 - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+
+1557109120 c:\users\usuario\desktop\tps\tp 2 - copia\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1557109048 source:c:\users\usuario\desktop\tps\tp 2 - copia\arrayemployees.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

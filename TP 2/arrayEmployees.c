@@ -641,9 +641,17 @@ void promediar(eEmpleado x[],int tam)
 
 void validarString(char x[])
 {
+
+    while(strlen(x)<=0)
+    {
+        printf("     El campo no puede estar vacio: ");
+        fflush(stdin);
+        gets(x);
+    }
+
     for(int i=0; i<strlen(x); i++)
     {
-        while(isalpha(x[i]) == 0 || strlen(x)>51)
+        while(isalpha(x[i]) == 0 || strlen(x)>51 || x[0] == '\0')
         {
             printf("     Reingrese solo caracteres alfabeticos <51: ");
             fflush(stdin);
@@ -657,15 +665,23 @@ float validarFloat(char sueldo[])
 {
     float sueldoK;
 
+    while(strlen(sueldo)<=0)
+    {
+        printf("     El campo no puede estar vacio: ");
+        fflush(stdin);
+        gets(sueldo);
+    }
+
     for(int i=0; i<strlen(sueldo); i++)
     {
+
         sueldoK = atof(sueldo);
 
         while(isalpha(sueldo[i]) != 0 || sueldoK <= 0 || sueldo[i] == ' ')
         {
             printf("     Reingrese un valor numerico y positivo: ");
             fflush(stdin);
-            scanf("%s", sueldo);
+            gets(sueldo);
             i=0;
             comapunto(sueldo);
             sueldoK = atof(sueldo);
@@ -693,6 +709,13 @@ void comapunto(char sueldo[])
 int validarEntero(char entero[])
 {
     int entero1;
+
+        while(strlen(entero)<=0)
+    {
+        printf("     El campo no puede estar vacio: ");
+        fflush(stdin);
+        gets(entero);
+    }
 
     for(int i=0; i<strlen(entero); i++)
     {
