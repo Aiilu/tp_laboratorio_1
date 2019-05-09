@@ -81,3 +81,26 @@
 	<conio.h>
 	"arrayEmployees.h"
 
+1557414142 source:c:\users\usuario\desktop\entregar\tp 2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+
+1557414983 c:\users\usuario\desktop\entregar\tp 2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1557414142 source:c:\users\usuario\desktop\entregar\tp 2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"arrayEmployees.h"
+

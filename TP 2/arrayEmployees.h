@@ -73,7 +73,7 @@ int buscarXid(eEmpleado[],int,int);
  */
 int cargarID();
 
-/** \brief Ingresa los datos de los empleados y carga secuencialmente(pregunta si desea continuar)
+/** \brief Ingresa los datos del empleado a dar de alta(pregunta si desea continuar)
  *
  * \param eEmpleado[]
  * \param int
@@ -126,7 +126,7 @@ void darBaja(eEmpleado[],int);
  */
 void ordenar(eEmpleado[],int);
 
-/** \brief Calcula y muestra el salario total y promedio de los empleados, tambien muestra los empleados que tienen un salario mayor al promedio
+/** \brief Calcula y muestra el salario total y promedio de los empleados, y cuales empleados superan el salario promedio
  *
  * \param eEmpleado[]
  * \param int
