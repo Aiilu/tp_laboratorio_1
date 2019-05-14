@@ -14,4 +14,4 @@ Hacer un ABM con datos estaticos.
 
 TP3 Estructuras con LinkedList
 
-Hacer un ABM con datos volatiles.
+Hacer un ABM con datos dinamicos.
