@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
 #include "LinkedList.h"
 #include "Controller.h"
 #include "Employee.h"
-#include "validaciones.h"
 
 /****************************************************
     Menu:
@@ -18,143 +20,85 @@
      9. Guardar los datos de los empleados en el archivo data.csv (modo binario).
     10. Salir
 *****************************************************/
-
+int menu();
 
 int main()
 {
-    int opcion = 0;
-    int flag = 0;
+    char seguir = 's';
+
+    //Aca hago la struct y le doy los valores, retorna un nuevoLinkedList
     LinkedList* listaEmpleados = ll_newLinkedList();
+
     do{
+        switch(menu())
+        {
+            case 1:
+                if(controller_loadFromText("data.csv",listaEmpleados)==-1)
+                {
+                    printf("No hay ningun .csv a levantar\n");
+                }
+                else
+                {
+                printf("Cargo exitosamente\n");
+                }
+                break;
+            case 2:
+                if(controller_loadFromBinary("data.csv",listaEmpleados)==-1)
+                {
+                    printf("No hay ningun .csv a levantar\n");
+                }
+                else
+                {
+                    printf("Cargo exitosamente\n");
+                }
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                printf("Bay\n");
+                seguir = 'n';
+                break;
+            default:
+                printf("Esto no existe\n");
+                break;
+        }
 
-    printf("\n----------------------------------------------------------------------------------");
-    printf("\n                                MENU                                              ");
-    printf("\n----------------------------------------------------------------------------------");
-    printf("\n                                                                                  ");
-    printf("\n* 1. Cargar los datos de los empleados desde el archivo data.csv (modo texto)    *");
-    printf("\n* 2. Cargar los datos de los empleados desde el archivo data.csv (modo binario)  *");
-    printf("\n* 3. Alta de empleado                                                            *");
-    printf("\n* 4. Modificar datos de empleado                                                 *");
-    printf("\n* 5. Baja de empleado                                                            *");
-    printf("\n* 6. Listar empleados                                                            *");
-    printf("\n* 7. Ordenar empleados                                                           *");
-    printf("\n* 8. Guardar los datos de los empleados en el archivo data.csv (modo texto)      *");
-    printf("\n* 9. Guardar los datos de los empleados en el archivo data.csv (modo binario)    *");
-    printf("\n* 10. Salir                                                                      *");
-    printf("\n  Ingrese una opcion: ");
-    scanf("%d" , & opcion);
+        system("pause");
+        system("cls");
 
-    switch(opcion)
-    {
-        case 1:
-            system("cls");
-            controller_loadFromText("data.csv",listaEmpleados);
-            system("pause");
-            flag = 1;
-            break;
-        case 2:
-            system("cls");
-            if(flag==1)
-            {
-            controller_loadFromBinary("data.bin", listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 3:
-            system("cls");
-            if(flag==1)
-            {
-            controller_addEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 4:
-            system("cls");
-            if(flag==1)
-            {
-            controller_editEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 5:
-            system("cls");
-            if(flag==1)
-            {
-            controller_removeEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 6:
-            system("cls");
-            if(flag==1)
-            {
-            controller_ListEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 7:
-            system("cls");
-            if(flag==1)
-            {
-            controller_sortEmployee(listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe cargar los datos");
-            }
-            system("pause");
-            break;
-        case 8:
-            system("cls");
-            if(flag==1)
-            {
-            controller_saveAsText("data.csv", listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe ingresar los datos");
-            }
-            system("pause");
-            break;
-        case 9:
-            system("cls");
-            if(flag==1)
-            {
-            controller_saveAsBinary("data.bin", listaEmpleados);
-            }
-            else
-            {
-                printf("Primero debe ingresar los datos");
-            }
-            system("pause");
-            break;
-        case 10:
-            break;
-        default:
-            printf("Esta opcion no existe");
-            system("pause");
-    }
-    }while(opcion != 10);
+    }while(seguir == 's');
+
     return 0;
 }
 
+int menu()
+{
+    int opcion;
+
+    printf("1. Cargar en texto\n");
+    printf("2. Cargar en binario\n");
+    printf("3. Alta\n");
+    printf("4. Modificar\n");
+    printf("5. Baja\n");
+    printf("6. Listar\n");
+    printf("7. Ordenar\n");
+    printf("8. Guardar en texto\n");
+    printf("9. Guardar en binario\n");
+    printf("10. Salir\n");
+    printf("Ingrese una opcion: ");
+    scanf("%d",&opcion);
+
+    return opcion;
+}

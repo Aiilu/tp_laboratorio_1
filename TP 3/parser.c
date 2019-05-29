@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <conio.h>
 #include "LinkedList.h"
 #include "Employee.h"
 
@@ -10,37 +13,45 @@
  * \return int
  *
  */
-int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
+int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    Employee* pAux;
-    char bufferId[1024];
-    char bufferName[1024];
-    char bufferHoursWorked[1024];
-    char bufferSalary[1024];
-    int bandera = 1;
     int retorno = -1;
+    char buffer[4][128];
+    int cant;
+    Employee* auxEmp;
 
-    while(!feof(pFile))
+    if(pFile !=NULL && pArrayListEmployee !=NULL)
     {
-        if(bandera)
+        fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n],\n", buffer[0], buffer[1], buffer[2], buffer[3]);
+
+        while(!feof(pFile))
         {
-            fscanf(pFile,"%s\n", bufferId);
-            bandera = 0;
+            cant = fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n],\n", buffer[0], buffer[1], buffer[2], buffer[3]);
+
+                if(cant < 4)
+                {
+                    if(feof(pFile))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        printf("Problemas para leer el archivo\n");
+                        break;
+                    }
+                }
+
+                //ACA LO AUMENTO COMO CON EL REALLOC
+
+                if(auxEmp !=NULL)
+                {
+                    //ACA LO METO EN LA STRUCT
+                }
         }
-        else if(fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n", bufferId, bufferName, bufferHoursWorked, bufferSalary)==4)
-        {
-            pAux = employee_newParametros(bufferId, bufferName, bufferHoursWorked, bufferSalary);
-            if(pAux != NULL)
-            {
-                ll_add(pArrayListEmployee, pAux);
-                retorno = 0;
-            }
-        }
-        else
-        {
-            break;
-        }
+
+        retorno = 0;
     }
+
     return retorno;
 }
 
@@ -51,21 +62,42 @@ int parser_EmployeeFromText(FILE* pFile, LinkedList* pArrayListEmployee)
  * \return int
  *
  */
-
- int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
+int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
 {
-    Employee* auxPEmpleado;
-    int retorno = -1;
-    int cantLineas;
-    do
-    {
-        auxPEmpleado = employee_new();
-        cantLineas = fread(auxPEmpleado, sizeof(Employee), 1, pFile);
-        if(auxPEmpleado != NULL && cantLineas == 1)
+     int retorno = -1;
+     int cant;
+     Employee* auxEmp;
+
+     if(pFile !=NULL && pArrayListEmployee !=NULL)
+     {
+        while(!feof(pFile))
         {
-            ll_add(pArrayListEmployee, auxPEmpleado);
-            retorno = 0;
+            //aca va a seguir pidiendo espacio en la memoria para meterlo
+            auxEmp = employee_new();
+
+            if(auxEmp !=NULL)
+            {
+                cant = fread(auxEmp,sizeof(Employee),1,pFile);
+
+                if(cant < 1)
+                {
+                    if(feof(pFile))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        printf("Problemas para leer el archivo\n");
+                        break;
+                    }
+                }
+
+                //ACA COPIO LOS VALORES ENCONTRADOS
+            }
         }
-    }while(!feof(pFile));
-    return retorno;
+
+        retorno = 0;
+     }
+
+     return retorno;
 }
