@@ -2,16 +2,16 @@
 
 TP1 Calculadora
 
-Hacer una calculadora.
+Hacer una calculadora. (Datos estaticos)
 
 -----------------------
 
 TP2 Estructuras
 
-Hacer un ABM con datos estaticos.
+Hacer un ABM de empleados. (Datos estaticos)
 
 -----------------------
 
-TP3 Estructuras con LinkedList
+TP3 LinkedList
 
-Hacer un ABM con datos dinamicos.
+Hacer un ABM de empleados implementando la biblioteca LinkedList.a. (Datos dinamicos)
