@@ -155,26 +155,34 @@ int validarString(char* x)
  * \return void
  *
  */
-void validarStringTam(char* x, int largo)
+int validarStringTam(char* x, int largo)
 {
+    int retorno = 0;
 
-    while(strlen(x)<=0)
+    if(x !=NULL)
     {
-        printf(" El campo no puede estar vacio: ");
-        fflush(stdin);
-        gets(x);
-    }
-
-    for(int i=0; i<strlen(x); i++)
-    {
-        while(isalpha(x[i]) == 0 || strlen(x)>largo || x[0] == '\0')
+        while(strlen(x)<=0)
         {
-            printf(" Reingrese solo caracteres alfabeticos > %d:",largo);
+            printf(" El campo no puede estar vacio: ");
             fflush(stdin);
             gets(x);
-            i=0;
         }
+
+        for(int i=0; i<strlen(x); i++)
+        {
+            while((isalpha(x[i]) == 0 && x[i] != '-' && x[i] != ' ')|| strlen(x)>largo || (x+0) == '\0')
+            {
+                printf(" Reingrese solo caracteres alfabeticos > %d:",largo);
+                fflush(stdin);
+                gets(x);
+                i=0;
+            }
+        }
+
+        retorno = 1;
     }
+
+    return retorno;
 }
 
 

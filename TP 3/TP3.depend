@@ -738,3 +738,62 @@
 	"LinkedList.h"
 	"validaciones.h"
 
+1560350212 source:c:\users\alumno\desktop\subir\tp 3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1560342538 c:\users\alumno\desktop\subir\tp 3\linkedlist.h
+
+1560342538 c:\users\alumno\desktop\subir\tp 3\employee.h
+	"LinkedList.h"
+
+1560342538 c:\users\alumno\desktop\subir\tp 3\parser.h
+
+1560370434 source:c:\users\alumno\desktop\subir\tp 3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"validaciones.h"
+
+1560342538 c:\users\alumno\desktop\subir\tp 3\controller.h
+
+1560376056 c:\users\alumno\desktop\subir\tp 3\validaciones.h
+
+1560342538 source:c:\users\alumno\desktop\subir\tp 3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560376014 source:c:\users\alumno\desktop\subir\tp 3\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"validaciones.h"
+
+1560376056 source:c:\users\alumno\desktop\subir\tp 3\employee.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<ctype.h>
+	<conio.h>
+	"Employee.h"
+	"LinkedList.h"
+	"validaciones.h"
+

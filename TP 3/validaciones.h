@@ -3,7 +3,7 @@ void validarTel(char* x);
 int funcion_validarEmail(char* str);
 void validarEmail(char* x);
 int validarString(char* x);
-void validarStringTam(char* x, int largo);
+int validarStringTam(char* x, int largo);
 int validarEnteroTam(char* entero, int largo);
 int validarEntero(char* entero);
 float validarFloat(char* sueldo);

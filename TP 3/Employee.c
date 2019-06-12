@@ -65,7 +65,7 @@ int employee_setNombre(Employee* this,char* nombre)
 
     int retorno = 0;
 
-    if(this != NULL && nombre != NULL && validarString(nombre))
+    if(this != NULL && nombre != NULL && validarStringTam(nombre,128))
     {
         strcpy(this->nombre, nombre);
         retorno = 1;
@@ -427,9 +427,7 @@ int darAlta(LinkedList* pArrayListEmployee)
     Employee* nuevoEmpleado;
     char nombre[128];
     int horas;
-    char valHoras[10];
     int sueldo;
-    char valSueldo[10];
 
     nuevoEmpleado = employee_new();
 
@@ -787,8 +785,6 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 fflush(stdin);
                 gets(nuevoNombre);
 
-                validarStringTam(nuevoNombre,128);
-
                 printf("\n");
 
                 seguir = validarSeguir();
@@ -797,7 +793,6 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 {
                     retorno = 1;
                     employee_setNombre(pEmp,nuevoNombre);
-                    //strcpy(pEmp->nombre,nuevoNombre);
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
@@ -834,7 +829,6 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 {
                     retorno = 1;
                     employee_setHorasTrabajadas(pEmp,horas);
-                    //pEmp->horasTrabajadas = horas;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
@@ -870,7 +864,6 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 {
                     retorno = 1;
                     employee_setSueldo(pEmp,sueldo);
-                    //pEmp->sueldo = sueldo;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
