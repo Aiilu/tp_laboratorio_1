@@ -561,3 +561,180 @@
 	"LinkedList.h"
 	"validaciones.h"
 
+1560354592 source:c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\employee.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<ctype.h>
+	<conio.h>
+	"Employee.h"
+	"LinkedList.h"
+	"validaciones.h"
+
+1560342536 c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\employee.h
+	"LinkedList.h"
+
+1560342536 c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\linkedlist.h
+
+1560348563 c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\validaciones.h
+
+1560350211 source:c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"validaciones.h"
+
+1560342536 c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\controller.h
+
+1560342536 source:c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560354418 source:c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"validaciones.h"
+
+1560350211 source:c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1560342536 c:\users\e76b73a\desktop\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\parser.h
+
+1560350211 source:c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1560342536 c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\linkedlist.h
+
+1560342536 c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\employee.h
+	"LinkedList.h"
+
+1560342536 c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\parser.h
+
+1560367195 source:c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\employee.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<ctype.h>
+	<conio.h>
+	"Employee.h"
+	"LinkedList.h"
+	"validaciones.h"
+
+1560348563 c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\validaciones.h
+
+1560350211 source:c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"validaciones.h"
+
+1560342536 c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\controller.h
+
+1560342536 source:c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560354418 source:c:\users\e76b73a\desktop\tp3\tp_laboratorio_1-master\tp_laboratorio_1-master\tp 3\win_32\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"validaciones.h"
+
+1560350211 source:c:\users\e76b73a\desktop\win_32\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1560342536 c:\users\e76b73a\desktop\win_32\linkedlist.h
+
+1560342536 c:\users\e76b73a\desktop\win_32\employee.h
+	"LinkedList.h"
+
+1560342536 c:\users\e76b73a\desktop\win_32\parser.h
+
+1560370433 source:c:\users\e76b73a\desktop\win_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"validaciones.h"
+
+1560342536 c:\users\e76b73a\desktop\win_32\controller.h
+
+1560348563 c:\users\e76b73a\desktop\win_32\validaciones.h
+
+1560342536 source:c:\users\e76b73a\desktop\win_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560371428 source:c:\users\e76b73a\desktop\win_32\validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"validaciones.h"
+
+1560372093 source:c:\users\e76b73a\desktop\win_32\employee.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<ctype.h>
+	<conio.h>
+	"Employee.h"
+	"LinkedList.h"
+	"validaciones.h"
+

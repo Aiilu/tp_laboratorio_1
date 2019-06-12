@@ -44,7 +44,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
     return retorno;
 }
 
-/** \brief Carga los datos de los empleados desde el archivo data.csv (modo binario).
+/** \brief Carga los datos de los empleados desde el archivo data.bin (modo binario).
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
@@ -100,7 +100,7 @@ int controller_addEmployee(LinkedList* pArrayListEmployee)
          }
          else
          {
-             printf(" Hubo un error al dar de alta a un empleado\n");
+             printf(" Hubo un error\n");
          }
      }
      return retorno;
@@ -128,7 +128,7 @@ int controller_editEmployee(LinkedList* pArrayListEmployee)
          }
          else
          {
-             printf(" Hubo un problema al intentar modificar un empleado\n");
+             printf(" Hubo un error\n");
          }
      }
      return retorno;
@@ -156,7 +156,7 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
        }
        else
        {
-           printf(" Hubo un error al dar de baja a un empleado\n");
+           printf(" Hubo un error\n");
        }
    }
 
@@ -183,7 +183,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
         }
         else
         {
-            printf(" Hubo un problema al listar a los empleados\n");
+            printf(" Hubo un error\n");
         }
     }
     return retorno;
@@ -210,7 +210,7 @@ int controller_sortEmployee(LinkedList* pArrayListEmployee)
          }
         else
         {
-            printf(" Hubo un error al ordenar los empleados\n");
+            printf(" Hubo un error\n");
         }
        }
 
@@ -253,7 +253,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
         }
         else
         {
-             printf(" Hubo un problema al guardar el archivo .csv\n");
+             printf(" Hubo un error al guardar el archivo .csv\n");
         }
 
         fclose(pFile);
@@ -262,7 +262,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
     return retorno;
 }
 
-/** \brief Guarda los datos de los empleados en el archivo data.csv (modo binario).
+/** \brief Guarda los datos de los empleados en el archivo data.bin (modo binario).
  *
  * \param path char*
  * \param pArrayListEmployee LinkedList*
@@ -296,7 +296,7 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
         }
         else
         {
-            printf(" Hubo un problema al guardar el archivo .bin\n");
+            printf(" Hubo un error al guardar el archivo .bin\n");
         }
 
         fclose(pFile);

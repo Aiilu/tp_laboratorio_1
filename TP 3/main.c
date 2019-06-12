@@ -26,6 +26,7 @@
 int main()
 {
     int opcion;
+    char valOpcion[3];
     char seguir = 's';
 
     LinkedList* listaEmpleados = ll_newLinkedList();
@@ -63,7 +64,10 @@ int main()
         printf(" ==============================================================================\n");
         printf("                                                                               \n");
         printf(" Ingrese una opcion del menu: ");
-        scanf("%d",&opcion);
+        fflush(stdin);
+        gets(valOpcion);
+
+        opcion = validarEntero(valOpcion);
 
         switch(opcion)
         {
@@ -146,11 +150,11 @@ int main()
             break;
         default:
             printf("\n\n");
-            printf("     ERROR. Esta opcion no es correcta\n");
+            printf(" ERROR. Esta opcion no es correcta\n");
         }
 
         fflush(stdin);
-        printf("     Presione ENTER para continuar");
+        printf(" Presione ENTER para continuar");
         getchar();
     }
     while(seguir == 's');

@@ -7,6 +7,12 @@
 
 //VALIDAR TELEFONO
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars cumpla las condiciones para ser un telefono
+ *
+ * \param str char*
+ * \return int
+ *
+ */
 int funcion_ValidarTelefono(char* str)
 {
     int i=0;
@@ -25,11 +31,17 @@ int funcion_ValidarTelefono(char* str)
     return 0;
 }
 
+/** \brief Valida que el dato no venga vacio y llama a la funcion que valida que sea un telefono
+ *
+ * \param x char*
+ * \return void
+ *
+ */
 void validarTel(char* x)
 {
     while(strlen(x)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(x);
     }
@@ -38,7 +50,7 @@ void validarTel(char* x)
     {
         while(!funcion_ValidarTelefono(x))
         {
-            printf("     Reingrese un telefono en formato xxxx-xxxx: ");
+            printf(" Reingrese un telefono en formato xxxx-xxxx: ");
             fflush(stdin);
             gets(x);
             i=0;
@@ -46,8 +58,13 @@ void validarTel(char* x)
     }
 }
 
-//VALIDAR EMAIL
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars cumpla las condiciones para ser un email
+ *
+ * \param str char*
+ * \return int
+ *
+ */
 int funcion_validarEmail(char* str)
 {
     int i=0;
@@ -66,11 +83,17 @@ int funcion_validarEmail(char* str)
     return 0;
 }
 
+/** \brief Valida que el dato no venga vacio y llama a la funcion que valida que sea un email
+ *
+ * \param x char*
+ * \return void
+ *
+ */
 void validarEmail(char* x)
 {
     while(strlen(x)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(x);
     }
@@ -79,7 +102,7 @@ void validarEmail(char* x)
     {
         while(!funcion_validarEmail(x))
         {
-            printf("     Reingrese un Email valido: ");
+            printf(" Reingrese un Email valido: ");
             fflush(stdin);
             gets(x);
             i=0;
@@ -87,41 +110,57 @@ void validarEmail(char* x)
     }
 }
 
-//VALIDAR NOMBRE
 
-void validarString(char* x)
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a cero o positivo, si no muestra mensaje de error
+ *
+ * \param x char*
+ * \return int
+ *
+ */
+int validarString(char* x)
 {
+    int retorno = 0;
 
     if(x !=NULL)
     {
         while(strlen(x)<=0)
         {
-            printf("Vacio: ");
+            printf(" El campo no puede estar vacio: ");
             fflush(stdin);
             gets(x);
         }
 
         for(int i=0; i<strlen(x); i++)
         {
-            while(isalpha(x[i]) == 0 || strlen(x)>51 || (x+0) == '\0')
+            while((isalpha(x[i]) == 0 && x[i] != '-' && x[i] != ' ') || strlen(x)>51 || (x+0) == '\0')
             {
-                printf("Reingrese nuevamente: ");
+                printf(" Reingrese solo caracteres alfabeticos: ");
                 fflush(stdin);
                 gets(x);
                 i=0;
             }
         }
+
+        retorno = 1;
     }
+
+    return retorno;
 }
 
-//VALIDAR NOMBRE CON MAX
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a cero o positivo y que no sobrepase el tamaño indicado, si no muestra mensaje de error
+ *
+ * \param x char*
+ * \param largo int
+ * \return void
+ *
+ */
 void validarStringTam(char* x, int largo)
 {
 
     while(strlen(x)<=0)
     {
-        printf("Vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(x);
     }
@@ -130,7 +169,7 @@ void validarStringTam(char* x, int largo)
     {
         while(isalpha(x[i]) == 0 || strlen(x)>largo || x[0] == '\0')
         {
-            printf("Reingrese > %d:",largo);
+            printf(" Reingrese solo caracteres alfabeticos > %d:",largo);
             fflush(stdin);
             gets(x);
             i=0;
@@ -138,15 +177,21 @@ void validarStringTam(char* x, int largo)
     }
 }
 
-//VALIDAR INT CON MAX
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a positivo o cero y que no sobrepase el tamaño indicado
+ *
+ * \param entero char*
+ * \param largo int
+ * \return int
+ *
+ */
 int validarEnteroTam(char* entero, int largo)
 {
     int entero1;
 
     while(strlen(entero)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(entero);
     }
@@ -158,7 +203,7 @@ int validarEnteroTam(char* entero, int largo)
 
         while(isalpha(entero[i]) != 0 || entero1 <= 0 || entero[i] == ' ' || entero[i] == ',' || entero[i] == '.' || strlen(entero)>largo)
         {
-            printf("     Reingrese un valor numerico y positivo >%d: ",largo);
+            printf(" Reingrese un valor numerico y positivo >%d: ",largo);
             fflush(stdin);
             gets(entero);
             i=0;
@@ -171,15 +216,19 @@ int validarEnteroTam(char* entero, int largo)
 }
 
 
-//VALIDAR INT
-
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a positivo o cero
+ *
+ * \param entero char*
+ * \return int
+ *
+ */
 int validarEntero(char* entero)
 {
     int entero1;
 
     while(strlen(entero)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(entero);
     }
@@ -191,7 +240,7 @@ int validarEntero(char* entero)
 
         while(isalpha(entero[i]) != 0 || entero1 <= 0 || entero[i] == ' ' || entero[i] == ',' || entero[i] == '.')
         {
-            printf("     Reingrese un valor numerico y positivo: ");
+            printf(" Reingrese un valor numerico y positivo: ");
             fflush(stdin);
             gets(entero);
             i=0;
@@ -204,15 +253,20 @@ int validarEntero(char* entero)
 }
 
 
-//VALIDAR FLOAT
-//FALTA AGREGAR EL COMA PUNTO
+
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a cero o positivo, si no muestra mensaje de error
+ *
+ * \param sueldo char*
+ * \return float
+ *
+ */
 float validarFloat(char* sueldo)
 {
     float sueldoK;
 
     while(strlen(sueldo)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(sueldo);
     }
@@ -224,10 +278,11 @@ float validarFloat(char* sueldo)
 
         while(isalpha(sueldo[i]) != 0 || sueldoK <= 0 || sueldo[i] == ' ')
         {
-            printf("     Reingrese un valor numerico y positivo: ");
+            printf(" Reingrese un valor numerico y positivo: ");
             fflush(stdin);
             gets(sueldo);
             i=0;
+            //comapunto(sueldo);
             sueldoK = atof(sueldo);
         }
 
@@ -236,21 +291,46 @@ float validarFloat(char* sueldo)
     return sueldoK;
 }
 
-//VALIDAR SEXO
 
+/** \brief  Recorre la cadena buscando una coma, en el caso de encontrarla la reemplaza por un punto, de forma que se permita ingresar un salario con coma
+ *
+ * \param sueldo[] char
+ * \return void
+ *
+ */
+/*void comapunto(char sueldo[])
+{
+    char coma=',';
+    char punto='.';
+
+    for (int i=0; i<strlen(sueldo); i++)
+    {
+        if (sueldo[i] == coma)
+        {
+            sueldo[i] = punto;
+        }
+    }
+}*/
+
+
+/** \brief Valida que el sexo ingresado sea "f" o "m", en caso de ingresar algo diferente, muestra mensaje de error
+ *
+ * \return char
+ *
+ */
 char validarSexo()
 {
     char sexos;
 
-    printf("     Ingrese sexo f/m: ");
+    printf(" Ingrese sexo f/m: ");
     fflush(stdin);
     sexos = getchar();
     sexos = toupper(sexos);
 
     while(sexos != 'F'  && sexos !='M' && sexos !='f' && sexos !='m')
     {
-        printf("     ERROR. Esta opcion no es valida\n");
-        printf("     Ingrese f/m: ");
+        printf(" ERROR. Esta opcion no es valida\n");
+        printf(" Ingrese f/m: ");
         fflush(stdin);
         sexos = getchar();
         sexos = toupper(sexos);
@@ -259,8 +339,12 @@ char validarSexo()
     return sexos;
 }
 
-//VALIDAR SEGUIR
 
+/** \brief Pregunta si desea continuar, en caso de ingresar algo diferente a "s" o "n", muestra mensaje de error
+ *
+ * \return char
+ *
+ */
 char validarSeguir()
 {
     char seguir;
@@ -272,8 +356,8 @@ char validarSeguir()
 
     while(seguir != 'S'  && seguir !='N' && seguir !='n' && seguir !='s')
     {
-        printf("     ERROR. Esta opcion no es valida\n");
-        printf("     Desea continuar? s/n: ");
+        printf(" ERROR. Esta opcion no es valida\n");
+        printf(" Desea continuar? s/n: ");
         fflush(stdin);
         seguir = getchar();
         seguir = toupper(seguir);
@@ -282,8 +366,13 @@ char validarSeguir()
     return seguir;
 }
 
-//COMPARAR FECHAS
-
+/** \brief Compara fechas ingresadas
+ *
+ * \param fech eFecha
+ * \param fecha eFecha
+ * \return int
+ *
+ */
 /*int compararFechas(eFecha fech, eFecha fecha)
 {
     int igual = 0;
@@ -295,14 +384,20 @@ char validarSeguir()
     return igual;
 }*/
 
-//VALIDAR DIRECCION
 
+/** \brief Valida que lo ingresado sea alfanumerico, solo letras, numero o un espacio entre ellos
+ *
+ * \param x char*
+ * \param largo int
+ * \return void
+ *
+ */
 void validarAlfaNum(char* x, int largo)
 {
 
     while(strlen(x)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(x);
     }
@@ -311,7 +406,7 @@ void validarAlfaNum(char* x, int largo)
     {
         while(strlen(x)>largo || (x[i] < 'a' || x[i] > 'z') && (x[i] < 'A' || x[i] > 'Z') && (x[i] < '0' || x[i] > '9') && x[i] != ' ')
         {
-            printf("     Reingrese solo caracteres alfanum >%d: ",largo);
+            printf(" Reingrese solo caracteres alfanum >%d: ",largo);
             fflush(stdin);
             gets(x);
             i=0;
@@ -319,8 +414,13 @@ void validarAlfaNum(char* x, int largo)
     }
 }
 
-//VALIDAR PATENTE
 
+/** \brief Valida que la patente sea alfanumerica
+ *
+ * \param x char*
+ * \return void
+ *
+ */
 void ValidarPatente(char* x)
 {
 
@@ -328,7 +428,7 @@ void ValidarPatente(char* x)
     {
         while(strlen(x)!=6)
         {
-            printf("La patente deben ser 3 letras y 3 numeros: ");
+            printf(" La patente deben ser 3 letras y 3 numeros: ");
             fflush(stdin);
             gets(x);
         }
@@ -336,13 +436,13 @@ void ValidarPatente(char* x)
         {
             while((x[i] < 'a' || x[i] > 'z') && (x[i] < 'A' || x[i] > 'Z'))
             {
-                printf("Reingrese patente valida, 3 letras y 3 numeros: ");
+                printf(" Reingrese patente valida, 3 letras y 3 numeros: ");
                 fflush(stdin);
                 gets(x);
             }
             while(x[j] < '0' || x[j] > '9')
             {
-                printf("Reingrese patente valida: ");
+                printf(" Reingrese patente valida: ");
                 fflush(stdin);
                 gets(x);
             }
@@ -351,15 +451,22 @@ void ValidarPatente(char* x)
     }
 }
 
-//VALIDAR INT FECHA
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a positivo o cero y que esten entre el maximo y minimo ingresado
+ *
+ * \param entero char*
+ * \param corto int
+ * \param largo int
+ * \return int
+ *
+ */
 int validarEnteroFecha(char* entero, int corto, int largo)
 {
     int entero1;
 
     while(strlen(entero)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(entero);
     }
@@ -371,7 +478,7 @@ int validarEnteroFecha(char* entero, int corto, int largo)
 
         while(isalpha(entero[i]) != 0 || entero1 <= 0 || entero[i] == ' ' || entero[i] == ',' || entero[i] == '.' || entero1 < corto || entero1 > largo)
         {
-            printf("     Reingrese un valor numerico y positivo >%d <%d: ",corto,largo);
+            printf(" Reingrese un valor numerico y positivo >%d <%d: ",corto,largo);
             fflush(stdin);
             gets(entero);
             i=0;
@@ -383,15 +490,22 @@ int validarEnteroFecha(char* entero, int corto, int largo)
     return entero1;
 }
 
-//VALIDAR INT MIN/MAX
 
+/** \brief Recorre la cadena buscando que cada uno de sus chars sea igual a positivo o cero y que no sobrepase el tamaño indicado
+ *
+ * \param entero char*
+ * \param corto int
+ * \param largo int
+ * \return int
+ *
+ */
 int validarEnteroRango(char* entero, int corto, int largo)
 {
     int entero1;
 
     while(strlen(entero)<=0)
     {
-        printf("     El campo no puede estar vacio: ");
+        printf(" El campo no puede estar vacio: ");
         fflush(stdin);
         gets(entero);
     }
@@ -403,7 +517,7 @@ int validarEnteroRango(char* entero, int corto, int largo)
 
         while(isalpha(entero[i]) != 0 || entero1 <= 0 || entero[i] == ' ' || entero[i] == ',' || entero[i] == '.' || entero1 < corto || entero1 > largo)
         {
-            printf("     Reingrese un valor numerico y positivo >%d <%d: ",corto,largo);
+            printf(" Reingrese un valor numerico y positivo >%d <%d: ",corto,largo);
             fflush(stdin);
             gets(entero);
             i=0;
@@ -415,7 +529,14 @@ int validarEnteroRango(char* entero, int corto, int largo)
     return entero1;
 }
 
-//VALIDAR FECHA
+
+/** \brief Valida una fecha ingresada, segun el mes ingresado, se fija si el dia esta entre los parametros correctos, si no muestra un mensaje de error
+ *
+ * \param
+ * \param
+ * \return
+ *
+ */
 /*         printf("Fecha de Inicio\n");
 
             printf("Ingrese anio: ");

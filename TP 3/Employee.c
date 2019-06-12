@@ -65,7 +65,7 @@ int employee_setNombre(Employee* this,char* nombre)
 
     int retorno = 0;
 
-    if(this != NULL && nombre != NULL)
+    if(this != NULL && nombre != NULL && validarString(nombre))
     {
         strcpy(this->nombre, nombre);
         retorno = 1;
@@ -110,7 +110,7 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 
     int retorno = 0;
 
-    if( this != NULL && horasTrabajadas > 0)
+    if(this != NULL && horasTrabajadas > 0)
     {
 
         this->horasTrabajadas = horasTrabajadas;
@@ -142,7 +142,7 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 
 }
 
-/** \brief Set del sueldo del empleado
+/** \brief Set de el sueldo del empleado
  *
  * \param this Employee*
  * \param sueldo int
@@ -274,6 +274,13 @@ void mostrarEmpleado(Employee* pEmp)
     }
 }
 
+/** \brief Ordena a los empleados por ID en forma ascendente
+ *
+ * \param numA void*
+ * \param numB void*
+ * \return int
+ *
+ */
 int ordenarXid(void* numA, void* numB)
 {
     int retorno = -1;
@@ -303,6 +310,13 @@ int ordenarXid(void* numA, void* numB)
 
 }
 
+/** \brief Ordena a los empleados por nombre en forma ascendente
+ *
+ * \param numA void*
+ * \param numB void*
+ * \return int
+ *
+ */
 int ordenarXnombre(void* numA, void* numB)
 {
     int retorno = -1;
@@ -331,6 +345,13 @@ int ordenarXnombre(void* numA, void* numB)
     return retorno;
 }
 
+/** \brief Ordena a los empleados por horas en forma ascendente
+ *
+ * \param numA void*
+ * \param numB void*
+ * \return int
+ *
+ */
 int ordenarXhoras(void* numA, void* numB)
 {
     int retorno = 0;
@@ -359,6 +380,13 @@ int ordenarXhoras(void* numA, void* numB)
     return retorno;
 }
 
+/** \brief Ordena a los empleados por sueldo en forma ascendente
+ *
+ * \param numA void*
+ * \param numB void*
+ * \return int
+ *
+ */
 int ordenarXsueldo(void* numA, void* numB)
 {
     int retorno = -1;
@@ -387,13 +415,21 @@ int ordenarXsueldo(void* numA, void* numB)
     return retorno;
 }
 
+/** \brief Ingresa los datos del empleado a dar de alta
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int darAlta(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
     Employee* nuevoEmpleado;
     char nombre[128];
     int horas;
+    char valHoras[10];
     int sueldo;
+    char valSueldo[10];
 
     nuevoEmpleado = employee_new();
 
@@ -409,6 +445,7 @@ int darAlta(LinkedList* pArrayListEmployee)
         printf(" Ingrese Nombre: ");
         fflush(stdin);
         gets(nombre);
+
         employee_setNombre(nuevoEmpleado,nombre);
 
         printf("\n");
@@ -416,6 +453,7 @@ int darAlta(LinkedList* pArrayListEmployee)
         printf(" Ingrese Horas: ");
         fflush(stdin);
         scanf("%d",&horas);
+
         employee_setHorasTrabajadas(nuevoEmpleado,horas);
 
         printf("\n");
@@ -423,6 +461,7 @@ int darAlta(LinkedList* pArrayListEmployee)
         printf(" Ingrese sueldo: ");
         fflush(stdin);
         scanf("%d",&sueldo);
+
         employee_setSueldo(nuevoEmpleado,sueldo);
 
         if(nuevoEmpleado !=NULL)
@@ -437,10 +476,17 @@ int darAlta(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/** \brief Ordena a los empleados segun la opcion seleccionada
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int ordenarEmpleados(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
     int opcion;
+    char valOpcion[2];
 
     if(pArrayListEmployee !=NULL)
     {
@@ -451,70 +497,80 @@ int ordenarEmpleados(LinkedList* pArrayListEmployee)
         printf(" #                                                                            #\n");
         printf(" ==============================================================================\n");
 
-            printf("\n");
-            printf(" AVISO: Debido a la enorme cantidad de empleados,\n");
-            printf(" va a demorar un poco el ordenarlos.\n");
-            printf(" Por favor, espere. Gracias!!!\n");
+        printf("\n");
+        printf(" AVISO: Debido a la enorme cantidad de empleados,\n");
+        printf(" va a demorar un poco el ordenarlos.\n");
+        printf(" Por favor, espere. Gracias!!!\n");
 
-            printf("\n");
+        printf("\n");
 
-            printf(" Que desea ordenar?\n");
-            printf(" 1. ID\n 2. Nombre\n 3. Horas\n 4. Sueldo\n");
-            printf(" Ingrese opcion: ");
-            scanf("%d",&opcion);
+        printf(" Que desea ordenar?\n");
+        printf(" 1. ID\n 2. Nombre\n 3. Horas\n 4. Sueldo\n");
+        printf(" Ingrese opcion: ");
+        fflush(stdin);
+        gets(valOpcion);
 
-            switch(opcion)
+        opcion = validarEntero(valOpcion);
+
+        switch(opcion)
+        {
+        case 1:
+            if(ll_sort(pArrayListEmployee, ordenarXid, 1)==-1)
             {
-            case 1:
-                if(ll_sort(pArrayListEmployee, ordenarXid, 1)==-1)
-                {
-                    retorno = 0;
-                }
-                else
-                {
-                    retorno = 1;
-                }
-                break;
-            case 2:
-                if(ll_sort(pArrayListEmployee, ordenarXnombre, 1)==-1)
-                {
-                    retorno = 0;
-                }
-                else
-                {
-                    retorno = 1;
-                }
-                break;
-            case 3:
-                if(ll_sort(pArrayListEmployee, ordenarXhoras, 1)==-1)
-                {
-                    retorno = 0;
-                }
-                else
-                {
-                    retorno = 1;
-                }
-                break;
-            case 4:
-                if(ll_sort(pArrayListEmployee, ordenarXsueldo, 1)==-1)
-                {
-                    retorno = 0;
-                }
-                else
-                {
-                    retorno = 1;
-                }
-                break;
-            default:
-                printf("\n");
-                printf(" Esta opcion no existe\n");
-                break;
+                retorno = 0;
             }
+            else
+            {
+                retorno = 1;
+            }
+            break;
+        case 2:
+            if(ll_sort(pArrayListEmployee, ordenarXnombre, 1)==-1)
+            {
+                retorno = 0;
+            }
+            else
+            {
+                retorno = 1;
+            }
+            break;
+        case 3:
+            if(ll_sort(pArrayListEmployee, ordenarXhoras, 1)==-1)
+            {
+                retorno = 0;
+            }
+            else
+            {
+                retorno = 1;
+            }
+            break;
+        case 4:
+            if(ll_sort(pArrayListEmployee, ordenarXsueldo, 1)==-1)
+            {
+                retorno = 0;
+            }
+            else
+            {
+                retorno = 1;
+            }
+            break;
+        default:
+            printf("\n");
+            retorno = 0;
+            printf(" Esta opcion no existe\n");
+            break;
+        }
     }
 
     return retorno;
 }
 
+/** \brief Muestra los datos de todos los empleados de a 200
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int listarEmpleados(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
@@ -523,21 +579,22 @@ int listarEmpleados(LinkedList* pArrayListEmployee)
 
     if(pArrayListEmployee != NULL)
     {
-        system("cls");
-        printf(" ==============================================================================\n");
-        printf(" #                                                                            #\n");
-        printf(" #                             >>>> Empleados <<<<                            #\n");
-        printf(" #                                                                            #\n");
-        printf(" ==============================================================================\n");
+            system("cls");
 
-        printf("\n");
+            printf(" ***********************************************************************\n");
+            printf(" *                                                                     *\n");
+            printf(" **********************    Listado de Empleados    *********************\n");
+            printf(" *                                                                     *\n");
+            printf(" ***********************************************************************\n");
 
-        printf(" A continuacion se le mostrara todos los empleados\n");
-        printf(" en forma encolumnada de a 200.\n");
+            printf("\n");
 
-        retorno = 1;
+            printf(" A continuacion se le mostrara todos los empleados\n");
+            printf(" en forma encolumnada de a 200.\n");
 
-        for( i=0; i < ll_len(pArrayListEmployee); i++)
+            retorno = 1;
+
+            for( i=0; i < ll_len(pArrayListEmployee); i++)
         {
             if(i%255==0)
             {
@@ -561,10 +618,17 @@ int listarEmpleados(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/** \brief Da de baja a un empleado segun su ID
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int darBaja(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
     int id;
+    char valId[5];
     int indice;
     char seguir;
 
@@ -581,32 +645,37 @@ int darBaja(LinkedList* pArrayListEmployee)
         listarEmpleados(pArrayListEmployee);
 
         printf(" Ingrese ID del empleado: ");
-        scanf("%d",&id);
+        fflush(stdin);
+        gets(valId);
+
+        id = validarEntero(valId);
+
+        printf("\n");
 
         indice = searchId(id,pArrayListEmployee);
 
         if(indice == -1)
         {
-            printf(" Este empleado no existe\n");
+            printf(" El ID %d no existe\n",id);
         }
         else
         {
-            system("cls");
-            printf(" ==============================================================================\n");
-            printf(" #                                                                            #\n");
-            printf(" #                              >>>> Empleado <<<<                            #\n");
-            printf(" #                                                                            #\n");
-            printf(" ==============================================================================\n");
+                system("cls");
+                printf(" ***********************************************************************\n");
+                printf(" *                                                                     *\n");
+                printf(" *************************       Empleado       ************************\n");
+                printf(" *                                                                     *\n");
+                printf(" ***********************************************************************\n");
 
-            printf("   Id   Nombre   Horas   Sueldo\n");
-            printf("   --   ------   -----   ------\n");
-            mostrarEmpleado((Employee*)ll_get(pArrayListEmployee,indice));
+                printf("   Id   Nombre   Horas   Sueldo\n");
+                printf("   --   ------   -----   ------\n");
+                mostrarEmpleado((Employee*)ll_get(pArrayListEmployee,indice));
 
-            printf("\n");
+                printf("\n");
 
-            seguir = validarSeguir();
+                seguir = validarSeguir();
 
-            if(seguir == 'S'  || seguir == 's')
+                if(seguir == 'S'  || seguir == 's')
             {
                 ll_remove(pArrayListEmployee,indice);
 
@@ -628,17 +697,27 @@ int darBaja(LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+/** \brief Modifica los valores a elegir por parte del usuario segun su ID
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int darModificacion(LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
     Employee* pEmp;
     int id;
+    char valId[5];
     int indice;
     int opcion;
+    char valOpcion[2];
     char seguir;
     char nuevoNombre[128];
     int horas;
+    char valHoras[10];
     int sueldo;
+    char valSueldo[10];
 
     if(pArrayListEmployee !=NULL)
     {
@@ -653,22 +732,28 @@ int darModificacion(LinkedList* pArrayListEmployee)
         listarEmpleados(pArrayListEmployee);
 
         printf(" Ingrese el ID del empleado: ");
-        scanf("%d",&id);
+        fflush(stdin);
+        gets(valId);
+
+        id = validarEntero(valId);
+
+        printf("\n");
 
         indice = searchId(id,pArrayListEmployee);
 
         if(indice == -1)
         {
-            printf(" Este empleado no existe\n");
+            printf(" El ID %d no existe\n",id);
+            printf("\n");
         }
         else
         {
             system("cls");
-            printf(" ==============================================================================\n");
-            printf(" #                                                                            #\n");
-            printf(" #                              >>>> Empleado <<<<                            #\n");
-            printf(" #                                                                            #\n");
-            printf(" ==============================================================================\n");
+            printf(" ***********************************************************************\n");
+            printf(" *                                                                     *\n");
+            printf(" *************************       Empleado       ************************\n");
+            printf(" *                                                                     *\n");
+            printf(" ***********************************************************************\n");
 
             printf("   Id   Nombre   Horas   Sueldo\n");
             printf("   --   ------   -----   ------\n");
@@ -680,14 +765,21 @@ int darModificacion(LinkedList* pArrayListEmployee)
             printf(" Que desea modificar?\n");
             printf(" 1. Nombre\n 2. Horas\n 3. Sueldo\n");
             printf(" Ingrese opcion: ");
-            scanf("%d",&opcion);
+            fflush(stdin);
+            gets(valOpcion);
+
+            opcion = validarEntero(valOpcion);
 
             switch(opcion)
             {
             case 1:
                 system("cls");
 
-                printf(" ***Modificar nombre***\n");
+                printf(" ***********************************************************************\n");
+                printf(" *                                                                     *\n");
+                printf(" *                        Modificar Nombre                             *\n");
+                printf(" *                                                                     *\n");
+                printf(" ***********************************************************************\n");
 
                 printf("\n");
 
@@ -695,30 +787,44 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 fflush(stdin);
                 gets(nuevoNombre);
 
+                validarStringTam(nuevoNombre,128);
+
                 printf("\n");
 
                 seguir = validarSeguir();
 
                 if(seguir == 'S'  || seguir == 's')
                 {
-                    strcpy(pEmp->nombre,nuevoNombre);
+                    retorno = 1;
+                    employee_setNombre(pEmp,nuevoNombre);
+                    //strcpy(pEmp->nombre,nuevoNombre);
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
                 else
                 {
+                    retorno = 1;
                     printf("\n");
                     printf(" Modificacion cancelada\n");
                 }
                 break;
             case 2:
-                printf(" ***Modificar horas***\n");
+
+                system("cls");
+
+                printf(" ***********************************************************************\n");
+                printf(" *                                                                     *\n");
+                printf(" *                        Modificar Horas                              *\n");
+                printf(" *                                                                     *\n");
+                printf(" ***********************************************************************\n");
 
                 printf("\n");
 
                 printf(" Ingrese horas trabajadas: ");
                 fflush(stdin);
-                scanf("%d",&horas);
+                gets(valHoras);
+
+                horas = validarEntero(valHoras);
 
                 printf("\n");
 
@@ -726,24 +832,35 @@ int darModificacion(LinkedList* pArrayListEmployee)
 
                 if(seguir == 'S'  || seguir == 's')
                 {
-                    pEmp->horasTrabajadas = horas;
+                    retorno = 1;
+                    employee_setHorasTrabajadas(pEmp,horas);
+                    //pEmp->horasTrabajadas = horas;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
                 else
                 {
+                    retorno = 1;
                     printf("\n");
                     printf(" Modificacion cancelada\n");
                 }
                 break;
             case 3:
-                printf(" ***Modificar sueldo***\n");
 
+                system("cls");
+
+                printf(" ***********************************************************************\n");
+                printf(" *                                                                     *\n");
+                printf(" *                        Modificar Sueldo                             *\n");
+                printf(" *                                                                     *\n");
+                printf(" ***********************************************************************\n");
                 printf("\n");
 
                 printf(" Ingrese sueldo: ");
                 fflush(stdin);
-                scanf("%d",&sueldo);
+                gets(valSueldo);
+
+                sueldo = validarEntero(valSueldo);
 
                 printf("\n");
 
@@ -751,23 +868,25 @@ int darModificacion(LinkedList* pArrayListEmployee)
 
                 if(seguir == 'S'  || seguir == 's')
                 {
-                    pEmp->sueldo = sueldo;
+                    retorno = 1;
+                    employee_setSueldo(pEmp,sueldo);
+                    //pEmp->sueldo = sueldo;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
                 else
                 {
+                    retorno = 1;
                     printf("\n");
                     printf(" Modificacion cancelada\n");
                 }
                 break;
             default:
+                retorno = 0;
                 printf("\n");
                 printf(" Esta opcion no existe\n");
             }
         }
-
-        retorno = 1;
     }
 
     return retorno;
@@ -804,26 +923,39 @@ int searchId(int id, LinkedList* pArrayEmp)
     return indice;
 }
 
+/** \brief Carga de manera incremental el ID de un empleado
+ *
+ * \param pArrayListEmployee LinkedList*
+ * \return int
+ *
+ */
 int generadorId(LinkedList* pArrayListEmployee)
 {
-    Employee* auxiliar;
+    Employee* aux;
     int cant;
-    int auxId;
+    int id;
     int maxID = -1;
     int i;
     if(pArrayListEmployee != NULL)
     {
         cant = ll_len(pArrayListEmployee);
+
         for(i=0; i<cant; i++)
         {
-            auxiliar = ll_get(pArrayListEmployee, i);
-            employee_getId(auxiliar, &auxId);
-            if(auxId > maxID)
+            if(aux !=NULL)
             {
-                maxID = auxId;
+                aux = ll_get(pArrayListEmployee, i);
+                employee_getId(aux, &id);
+
+                if(id > maxID)
+                {
+                    maxID = id;
+                }
             }
         }
     }
+
     maxID += 1;
+
     return maxID;
 }
