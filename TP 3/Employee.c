@@ -107,12 +107,15 @@ int employee_getNombre(Employee* this,char* nombre)
  */
 int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
 {
-
+    char validar[5];
     int retorno = 0;
+
+    itoa(horasTrabajadas,validar,10);
+
+    horasTrabajadas = validarEntero(validar);
 
     if(this != NULL && horasTrabajadas > 0)
     {
-
         this->horasTrabajadas = horasTrabajadas;
         retorno = 1;
     }
@@ -129,7 +132,6 @@ int employee_setHorasTrabajadas(Employee* this,int horasTrabajadas)
  */
 int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
 {
-
     int retorno = 0;
 
     if( this != NULL && horasTrabajadas != NULL )
@@ -151,8 +153,12 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
  */
 int employee_setSueldo(Employee* this,int sueldo)
 {
-
+    char validar[10];
     int retorno = 0;
+
+    itoa(sueldo,validar,10);
+
+    sueldo = validarEntero(validar);
 
     if( this != NULL && sueldo > 0)
     {
@@ -785,14 +791,17 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 fflush(stdin);
                 gets(nuevoNombre);
 
+                validarStringTam(nuevoNombre,128);
+
                 printf("\n");
 
                 seguir = validarSeguir();
 
                 if(seguir == 'S'  || seguir == 's')
                 {
+                    strcpy(pEmp->nombre,nuevoNombre);
                     retorno = 1;
-                    employee_setNombre(pEmp,nuevoNombre);
+
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
@@ -828,7 +837,7 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 if(seguir == 'S'  || seguir == 's')
                 {
                     retorno = 1;
-                    employee_setHorasTrabajadas(pEmp,horas);
+                    pEmp->horasTrabajadas = horas;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
@@ -863,7 +872,7 @@ int darModificacion(LinkedList* pArrayListEmployee)
                 if(seguir == 'S'  || seguir == 's')
                 {
                     retorno = 1;
-                    employee_setSueldo(pEmp,sueldo);
+                    pEmp->sueldo = sueldo;
                     printf("\n");
                     printf(" Modificacion exitosa!!!\n");
                 }
