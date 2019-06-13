@@ -28,6 +28,8 @@ int main()
     int opcion;
     char valOpcion[3];
     char seguir = 's';
+    int flagText = 0;
+    int flagBin = 0;
 
     LinkedList* listaEmpleados = ll_newLinkedList();
 
@@ -73,67 +75,132 @@ int main()
         {
         case 1:
             printf("\n");
-            controller_loadFromText("data.csv",listaEmpleados);
-            break;
-        case 2:
-            printf("\n");
-            controller_loadFromBinary("data.bin",listaEmpleados);
-            break;
-        case 3:
-            printf("\n");
-            controller_addEmployee(listaEmpleados);
-            break;
-        case 4:
-            printf("\n");
-            if(ll_len(listaEmpleados)==0)
+            if(flagBin == 0)
             {
-                printf(" No hay ningun empleado\n");
+                controller_loadFromText("data.csv",listaEmpleados);
+                flagText =  1;
             }
             else
             {
-               controller_editEmployee(listaEmpleados);
+                printf(" Solo se puede cargar un archivo\n");
+            }
+            break;
+        case 2:
+            printf("\n");
+            if(flagText == 0)
+            {
+                controller_loadFromBinary("data.bin",listaEmpleados);
+                flagBin = 1;
+            }
+            else
+            {
+                printf(" Solo se puede cargar un archivo\n");
+            }
+            break;
+        case 3:
+            printf("\n");
+            if(flagText == 1 || flagBin == 1)
+            {
+                controller_addEmployee(listaEmpleados);
+            }
+            else
+            {
+                printf(" Primero debe cargar el archivo\n");
+            }
+            break;
+        case 4:
+            printf("\n");
+            if(flagText == 1 || flagBin == 1)
+            {
+                if(ll_len(listaEmpleados)==0)
+                {
+                    printf(" No hay ningun empleado\n");
+                }
+                else
+                {
+                    controller_editEmployee(listaEmpleados);
+                }
+            }
+            else
+            {
+                printf(" Primero debe cargar el archivo\n");
             }
             break;
         case 5:
             printf("\n");
-            if(ll_len(listaEmpleados)==0)
+            if(flagText == 1 || flagBin == 1)
             {
-                printf(" No hay ningun empleado que mostrar\n");
+                if(ll_len(listaEmpleados)==0)
+                {
+                    printf(" No hay ningun empleado que mostrar\n");
+                }
+                else
+                {
+                    controller_removeEmployee(listaEmpleados);
+                }
             }
             else
             {
-                controller_removeEmployee(listaEmpleados);
+                printf(" Primero debe cargar el archivo\n");
             }
             break;
         case 6:
             printf("\n");
-            if(ll_len(listaEmpleados)==0)
+            if(flagText == 1 || flagBin == 1)
             {
-                printf(" No hay ningun empleado que mostrar\n");
+                if(ll_len(listaEmpleados)==0)
+                {
+                    printf(" No hay ningun empleado que mostrar\n");
+                }
+                else
+                {
+                    controller_ListEmployee(listaEmpleados);
+                }
             }
             else
             {
-                controller_ListEmployee(listaEmpleados);
+                printf(" Primero debe cargar el archivo\n");
             }
             break;
         case 7:
             printf("\n");
-            if(ll_len(listaEmpleados)==0)
+            if(flagText == 1 || flagBin == 1)
             {
-                printf(" No hay ningun empleado que mostrar\n");
+                if(ll_len(listaEmpleados)==0)
+                {
+                    printf(" No hay ningun empleado que mostrar\n");
+                }
+                else
+                {
+                    controller_sortEmployee(listaEmpleados);
+                }
             }
             else
             {
-                 controller_sortEmployee(listaEmpleados);
+                printf(" Primero debe cargar el archivo\n");
             }
             break;
         case 8:
             printf("\n");
-            controller_saveAsText("data.csv",listaEmpleados);
+            if(flagText == 1 || flagBin == 1)
+            {
+                controller_saveAsText("data.csv",listaEmpleados);
+            }
+            else
+            {
+                printf(" Primero debe cargar el archivo\n");
+            }
             break;
         case 9:
             printf("\n");
-            controller_saveAsBinary("data.bin",listaEmpleados);
+            if(flagText == 1 || flagBin == 1)
+            {
+                controller_saveAsBinary("data.bin",listaEmpleados);
+            }
+            else
+            {
+                printf(" Primero debe cargar el archivo\n");
+            }
             break;
         case 10:
             system("cls");

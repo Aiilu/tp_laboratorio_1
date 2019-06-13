@@ -154,7 +154,7 @@ Id,Nombre,Horas,Sueldo
 571,Carma,220,33000
 749,Carola,325,10000
 936,Carolina,88,33000
-50,Carroll,220,42000
+50,Carroll,220,564789
 569,Carter,88,33000
 731,Cassandry,60,33000
 349,Cassie,88,50000
@@ -1001,4 +1001,5 @@ Id,Nombre,Horas,Sueldo
 224,Zonda,325,33000
 692,Zorina,75,18000
 750,Zsa zsa,180,20000
-1006,gato,45,50321
+1007,pepin,45,45
+1008,hhh,78,789

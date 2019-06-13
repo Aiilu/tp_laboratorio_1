@@ -153,16 +153,15 @@ int employee_getHorasTrabajadas(Employee* this,int* horasTrabajadas)
  */
 int employee_setSueldo(Employee* this,int sueldo)
 {
-    char validar[10];
+    char validar[5];
     int retorno = 0;
 
     itoa(sueldo,validar,10);
 
     sueldo = validarEntero(validar);
 
-    if( this != NULL && sueldo > 0)
+    if( this != NULL)
     {
-
         this->sueldo = sueldo;
         retorno = 1;
     }
@@ -437,7 +436,7 @@ int darAlta(LinkedList* pArrayListEmployee)
 
     nuevoEmpleado = employee_new();
 
-    if(pArrayListEmployee !=NULL)
+    if(pArrayListEmployee !=NULL && nuevoEmpleado !=NULL)
     {
         system("cls");
         printf(" ==============================================================================\n");
@@ -455,7 +454,6 @@ int darAlta(LinkedList* pArrayListEmployee)
         printf("\n");
 
         printf(" Ingrese Horas: ");
-        fflush(stdin);
         scanf("%d",&horas);
 
         employee_setHorasTrabajadas(nuevoEmpleado,horas);
@@ -463,7 +461,6 @@ int darAlta(LinkedList* pArrayListEmployee)
         printf("\n");
 
         printf(" Ingrese sueldo: ");
-        fflush(stdin);
         scanf("%d",&sueldo);
 
         employee_setSueldo(nuevoEmpleado,sueldo);
