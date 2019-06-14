@@ -36,9 +36,13 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
             {
                 printf(" Hubo un error al cargar el archivo .csv\n");
             }
-
-            fclose(pFile);
         }
+        else
+        {
+            printf(" El archivo no se pudo abrir correctamente\n");
+        }
+
+        fclose(pFile);
     }
 
     return retorno;
@@ -71,6 +75,10 @@ int controller_loadFromBinary(char* path, LinkedList* pArrayListEmployee)
             {
                 printf(" Hubo un error al cargar el archivo .bin\n");
             }
+        }
+        else
+        {
+            printf(" El archivo no se pudo abrir correctamente\n");
         }
 
         fclose(pFile);

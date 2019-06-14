@@ -172,7 +172,7 @@ int validarStringTam(char* x, int largo)
         {
             while((isalpha(x[i]) == 0 && x[i] != '-' && x[i] != ' ')|| strlen(x)>largo || (x+0) == '\0')
             {
-                printf(" Reingrese solo caracteres alfabeticos > %d:",largo);
+                printf(" Reingrese solo caracteres alfabeticos > %d: ",largo);
                 fflush(stdin);
                 gets(x);
                 i=0;
