@@ -30,6 +30,7 @@ int main()
     char seguir = 's';
     int flagText = 0;
     int flagBin = 0;
+    int flagUno = 0;
 
     LinkedList* listaEmpleados = ll_newLinkedList();
 
@@ -75,10 +76,11 @@ int main()
         {
         case 1:
             printf("\n");
-            if(flagBin == 0)
+            if(flagBin == 0 && flagUno == 0)
             {
                 controller_loadFromText("data.csv",listaEmpleados);
                 flagText =  1;
+                flagUno = 1;
             }
             else
             {
@@ -87,10 +89,11 @@ int main()
             break;
         case 2:
             printf("\n");
-            if(flagText == 0)
+            if(flagText == 0 && flagUno == 0)
             {
                 controller_loadFromBinary("data.bin",listaEmpleados);
                 flagBin = 1;
+                flagUno = 1;
             }
             else
             {
