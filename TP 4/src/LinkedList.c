@@ -541,6 +541,11 @@ LinkedList* ll_subList(LinkedList* this,int from,int to)
                 ll_add(this2,pAux);
             }
         }
+        else
+        {
+            this2 = NULL;
+            free(this2);
+        }
 
         if(this2->size == (to-from))
         {
@@ -568,30 +573,6 @@ LinkedList* ll_clone(LinkedList* this)
         cloneArray = ll_subList(this,0,this->size);
     }
 
-    /*LinkedList* this2;
-    void* pAux;
-
-    if(this !=NULL)
-    {
-        this2 = ll_newLinkedList();
-
-        if(this2 !=NULL)
-        {
-            for(int i=0; i<ll_len(this); i++)
-            {
-                pAux = ll_get(this,i);
-
-                ll_add(this2,pAux);
-
-            }
-        }
-
-        if(this2->size == this->size)
-        {
-            cloneArray = this2;
-        }
-    }*/
-
     return cloneArray;
 }
 
@@ -605,18 +586,73 @@ LinkedList* ll_clone(LinkedList* this)
  */
 int ll_sort(LinkedList* this, int (*pFunc)(void*,void*), int order)
 {
-    int returnAux =-1;
+    int returnAux = -1;
 
-   /* if(this !=NULL && pFunc !=NULL && (order == 0 || order == 1))
+    void* pAux;
+    Node* node1;
+    Node* node2;
+    int flag;
+
+    if(this !=NULL && pFunc !=NULL && (order == 0 || order == 1) && this->size > 0)
     {
-       for(int i=0; i<(ll_len(this)-1); i++)
-       {
+        do
+        {
+            flag = 0;
 
-       }
-    }*/
+            node1 = this->pFirstNode;
+
+            if(node1 !=NULL)
+            {
+                    node2 = node1->pNextNode;
+
+                    for(int i=0; i<(ll_len(this)-1); i++)
+                    {
+                        //preg por el retorno de pFunc 1 -> d , -1 -> a y por el orden, si son diferentes a lo que quiero ordenar, los cambio, si no, quedan igual
+                        if((pFunc(node1->pElement,node2->pElement)== 1 && order == 1) || (pFunc(node1->pElement,node2->pElement)== -1 && order == 0))
+                        {
+                            pAux = node1->pElement;
+                            node1->pElement = node2->pElement;
+                            node2->pElement = pAux;
+                            flag = 1;
+                        }
+
+                        if(node2->pNextNode !=NULL)
+                        {
+                            node1 = node2;
+                        }
+                        else
+                        {
+                            break;
+                        }
+
+                        node2 = node1->pNextNode;
+
+                    }
+            }
+        }
+        while(flag == 1);
+
+        returnAux = 0;
+
+    }
 
     return returnAux;
 
 }
 
-//Hago mis auxiliares y comparo? necesito indices?
+/** \brief
+ *
+ * \param void*
+ * \return LinkedList* ll_map(LinkedList* this, void*
+ *
+ */
+LinkedList* ll_map(LinkedList* this, void* (*pFunc)(void*));
+
+/** \brief
+ *
+ * \param this LinkedList*
+ * \param (*pFunc void*
+ * \return LinkedList*
+ *
+ */
+LinkedList* ll_filter(LinkedList* this, void* (*pFunc) (void*));

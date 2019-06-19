@@ -5100,3 +5100,495 @@
 
 1532345168 c:\users\usuario\desktop\linkedlist_cascara_v5\testing\inc\main_test.h
 
+1541034030 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\addnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955476 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\utest.h
+
+1559955476 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\inc\linkedlist.h
+
+1559955474 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\employee.h
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\addtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\cleartest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\clonetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\containsalltest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345176 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\containstest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\deletelinkedlisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955474 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\getnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\gettest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\indexoftest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\isemptytest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955472 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\lentest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955476 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\main_test.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	"../inc/newTest.h"
+	"../inc/addTest.h"
+	"../inc/getNodeTest.h"
+	"../inc/addNodeTest.h"
+	"../inc/deleteLinkedListTest.h"
+	"../inc/lenTest.h"
+	"../inc/getTest.h"
+	"../inc/containsTest.h"
+	"../inc/setTest.h"
+	"../inc/removeTest.h"
+	"../inc/clearTest.h"
+	"../inc/cloneTest.h"
+	"../inc/pushTest.h"
+	"../inc/indexOfTest.h"
+	"../inc/isEmptyTest.h"
+	"../inc/popTest.h"
+	"../inc/subListTest.h"
+	"../inc/containsAllTest.h"
+	"../inc/sortTest.h"
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\newtest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\addtest.h
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\getnodetest.h
+
+1541034030 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\addnodetest.h
+
+1559955474 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\deletelinkedlisttest.h
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\lentest.h
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\gettest.h
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\containstest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\settest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\removetest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\cleartest.h
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\clonetest.h
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\pushtest.h
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\indexoftest.h
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\isemptytest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\poptest.h
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\sublisttest.h
+
+1532345166 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\containsalltest.h
+
+1532345170 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\sorttest.h
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\newtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+
+1532345174 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\poptest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\pushtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\removetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345176 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\settest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\sorttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\src\sublisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345152 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\utest.c
+	"utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1560869712 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../testing/inc/main_test.h"
+	"../inc/LinkedList.h"
+
+1532345168 c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\testing\inc\main_test.h
+
+1560868433 source:c:\users\e76b73a\desktop\linkedlist_cascara_v5 - copia\src\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/LinkedList.h"
+
+1541034030 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\addnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955476 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\utest.h
+
+1559955476 e:\revisar esto\linkedlist_cascara_v5 - copia\inc\linkedlist.h
+
+1559955474 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\employee.h
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\addtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\cleartest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\clonetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\containsalltest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345176 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\containstest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\deletelinkedlisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955474 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\getnodetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\gettest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\indexoftest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345170 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\isemptytest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955472 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\lentest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1559955476 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\main_test.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	"../inc/newTest.h"
+	"../inc/addTest.h"
+	"../inc/getNodeTest.h"
+	"../inc/addNodeTest.h"
+	"../inc/deleteLinkedListTest.h"
+	"../inc/lenTest.h"
+	"../inc/getTest.h"
+	"../inc/containsTest.h"
+	"../inc/setTest.h"
+	"../inc/removeTest.h"
+	"../inc/clearTest.h"
+	"../inc/cloneTest.h"
+	"../inc/pushTest.h"
+	"../inc/indexOfTest.h"
+	"../inc/isEmptyTest.h"
+	"../inc/popTest.h"
+	"../inc/subListTest.h"
+	"../inc/containsAllTest.h"
+	"../inc/sortTest.h"
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\newtest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\addtest.h
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\getnodetest.h
+
+1541034030 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\addnodetest.h
+
+1559955474 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\deletelinkedlisttest.h
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\lentest.h
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\gettest.h
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\containstest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\settest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\removetest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\cleartest.h
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\clonetest.h
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\pushtest.h
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\indexoftest.h
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\isemptytest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\poptest.h
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\sublisttest.h
+
+1532345166 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\containsalltest.h
+
+1532345170 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\sorttest.h
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\newtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+
+1532345174 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\poptest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\pushtest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\removetest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345176 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\settest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345172 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\sorttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345174 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\src\sublisttest.c
+	"../../testing/utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../../inc/LinkedList.h"
+	"../../testing/inc/Employee.h"
+
+1532345152 source:e:\revisar esto\linkedlist_cascara_v5 - copia\testing\utest.c
+	"utest.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1560869714 source:e:\revisar esto\linkedlist_cascara_v5 - copia\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../testing/inc/main_test.h"
+	"../inc/LinkedList.h"
+
+1532345168 e:\revisar esto\linkedlist_cascara_v5 - copia\testing\inc\main_test.h
+
+1560910704 source:e:\revisar esto\linkedlist_cascara_v5 - copia\src\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../inc/LinkedList.h"
+
